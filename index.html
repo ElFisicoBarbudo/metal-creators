@@ -405,13 +405,6 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 .lang button{background:none;border:0;padding:8px 10px;font:600 12px/1 var(--display);letter-spacing:.14em;color:var(--ink-3);cursor:pointer;transition:color .3s,background .3s}
 .lang button:hover{color:var(--ink)}
 .lang button.on{background:var(--ink);color:var(--bg)}
-/* logo: cromado en escritorio, blanco estático en móvil */
-.logo3d .logo-static{display:none}
-@media (max-width:820px){
-  .logo3d{transform:none;filter:drop-shadow(0 0 40px rgba(250,180,197,.25))}
-  .logo3d canvas,.logo3d .flat{display:none}
-  .logo3d .logo-static{display:block;position:absolute;left:2.7%;top:5.6%;width:94.6%;height:auto}
-}
 </style>
 </head>
 <body class="no-js">
@@ -444,7 +437,6 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
     <h1 class="logo3d" data-chrome-logo data-height="assets/img/logo-height.png" role="img" aria-label="Metal CREATORS">
       <span class="flat"></span>
       <canvas></canvas>
-      <img class="logo-static" src="assets/img/logo-creators.png" alt="">
     </h1>
     <p class="serif" data-en-html="Different styles, one common riff: &lt;b&gt;metal&lt;/b&gt;">Diversidad de estilos, pero con un riff común: <b>el metal</b></p>
     <div class="hero-ctas">

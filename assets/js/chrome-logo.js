@@ -42,10 +42,7 @@ void main(){
   }
   gl_FragColor=vec4(col*al,al);
 }`;
-  const MOBILE=matchMedia('(max-width: 820px)');
   function init(wrap){
-    // En móvil se muestra el logo blanco estático; el cromado solo se activa en escritorio.
-    if(MOBILE.matches){ const h=()=>{ if(!MOBILE.matches){ MOBILE.removeEventListener('change',h); init(wrap); } }; MOBILE.addEventListener('change',h); return; }
     const cv=wrap.querySelector('canvas');
     const gl=cv&&cv.getContext('webgl',{premultipliedAlpha:true,antialias:false,alpha:true});
     if(!gl) return;
@@ -76,7 +73,7 @@ void main(){
     function size(){const dpr=Math.min(devicePixelRatio||1,1.75);const r=cv.getBoundingClientRect();cv.width=Math.max(1,Math.round(r.width*dpr));cv.height=Math.max(1,Math.round(r.height*dpr));gl.viewport(0,0,cv.width,cv.height);}
     addEventListener('resize',size);
     function frame(now){
-      raf=0;if(!visible||document.hidden||MOBILE.matches)return;
+      raf=0;if(!visible||document.hidden)return;
       const t=(now-t0)/1000;
       if(!mouse) tgt=[Math.sin(t*.45)*.55,Math.cos(t*.33)*.35];
       cur[0]+=(tgt[0]-cur[0])*.06;cur[1]+=(tgt[1]-cur[1])*.06;
@@ -86,7 +83,7 @@ void main(){
       gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
       if(!reduce) raf=requestAnimationFrame(frame);
     }
-    function start(){size();raf=requestAnimationFrame(frame);MOBILE.addEventListener('change',()=>{if(!MOBILE.matches&&!raf){size();raf=requestAnimationFrame(frame)}});document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!raf)raf=requestAnimationFrame(frame)});}
+    function start(){size();raf=requestAnimationFrame(frame);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!raf)raf=requestAnimationFrame(frame)});}
   }
   document.querySelectorAll('[data-chrome-logo]').forEach(init);
 })();
