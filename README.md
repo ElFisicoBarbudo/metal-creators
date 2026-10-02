@@ -40,3 +40,7 @@ y las de la sección de marcas (`+300k`, `+80k`, `+56k`, `+260k`).
 ### Colores
 
 Al principio del archivo, en `:root`: `--red` es el color de acento (ahora rosa `#fab4c5`).
+
+## Logo 3D de la cabecera
+
+El logo cromado se dibuja con `assets/js/chrome-logo.js` a partir de `assets/img/logo-height.png` (relieve + silueta del logo). Si algún día cambia el logo, hay que regenerar esa imagen; si el navegador no soporta WebGL, se muestra una versión plana del logo.
