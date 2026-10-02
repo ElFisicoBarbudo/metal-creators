@@ -757,7 +757,7 @@ function cardHTML(c,key){ return `
       <p class="anthem">${ICON.note}<span>${c.song} · <i>${c.artist}</i></span></p>
     </a>`; }
 function buildGrid(){
-  const list=[...CREATORS].sort(sorter(sortKey));
+  const list=[...CREATORS].filter(c=>sortKey==='rnd'||c[sortKey]>0).sort(sorter(sortKey));
   const g=document.getElementById('grid'); g.innerHTML=list.map(c=>cardHTML(c,sortKey)).join('');
   g.querySelectorAll('.card').forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--d',(i%4)*.07+'s');io&&io.observe(el)});
 }
@@ -768,9 +768,10 @@ function renderGrid(key){
   const first=new Map(cards.map(el=>[el.dataset.h,el.getBoundingClientRect()]));
   const list=[...CREATORS].sort(sorter(key));
   list.forEach(c=>{const el=g.querySelector(`[data-h="${CSS.escape(c.h)}"]`); if(!el) return;
+    const show=key==='rnd'||c[key]>0; el.style.display=show?'':'none';
     const r=el.querySelector('.rank'); r.hidden=key==='rnd'; if(key!=='rnd') r.textContent=fmt(c[key]); g.appendChild(el);});
   if(REDUCE) return;
-  [...g.children].forEach((el,i)=>{const a=first.get(el.dataset.h),b=el.getBoundingClientRect(); if(!a) return;
+  [...g.children].forEach((el,i)=>{const a=first.get(el.dataset.h),b=el.getBoundingClientRect(); if(!a||!a.width||!b.width) return;
     const dx=a.left-b.left,dy=a.top-b.top; if(!dx&&!dy) return;
     el.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'none'}],{duration:850,easing:'cubic-bezier(.16,1,.3,1)',delay:i*18});});
 }
