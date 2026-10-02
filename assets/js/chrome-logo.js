@@ -69,23 +69,6 @@ void main(){
     let tgt=[0,0],cur=[0,0],mouse=false,visible=true,raf=0,t0=performance.now();
     addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mouse=true;tgt=[(e.clientX/innerWidth-.5)*1.6,(e.clientY/innerHeight-.5)*1.4];},{passive:true});
     document.addEventListener('mouseleave',()=>mouse=false);
-    // móvil: inclinación del dispositivo (giroscopio). iOS pide permiso con un gesto.
-    if(!reduce&&'DeviceOrientationEvent' in window&&matchMedia('(pointer:coarse)').matches){
-      let base=null,on=false,last=0;
-      const clamp=(v,m)=>Math.max(-m,Math.min(m,v));
-      const onOri=e=>{if(e.beta==null||e.gamma==null)return;
-        if(!base)base={b:e.beta,g:e.gamma};
-        const g=clamp(e.gamma-base.g,28)/28,b=clamp(e.beta-base.b,28)/28;
-        base.b+=(e.beta-base.b)*.002;base.g+=(e.gamma-base.g)*.002;
-        mouse=true;last=performance.now();tgt=[g*.9,b*.8];};
-      const listen=()=>{if(on)return;on=true;addEventListener('deviceorientation',onOri,{passive:true});
-        setInterval(()=>{if(mouse&&performance.now()-last>1500)mouse=false},800);};
-      const D=window.DeviceOrientationEvent;
-      if(typeof D.requestPermission==='function'){
-        const ask=()=>{D.requestPermission().then(r=>{if(r==='granted')listen()}).catch(()=>{})};
-        addEventListener('touchend',ask,{once:true,passive:true});
-      }else listen();
-    }
     new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible&&!raf)raf=requestAnimationFrame(frame)}).observe(wrap);
     function size(){const dpr=Math.min(devicePixelRatio||1,1.75);const r=cv.getBoundingClientRect();cv.width=Math.max(1,Math.round(r.width*dpr));cv.height=Math.max(1,Math.round(r.height*dpr));gl.viewport(0,0,cv.width,cv.height);}
     addEventListener('resize',size);
