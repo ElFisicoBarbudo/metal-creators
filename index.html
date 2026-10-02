@@ -547,7 +547,7 @@ function applyTexts(T){
   if(T.dossier_url) document.querySelectorAll('[data-dossier]').forEach(a=>a.href=T.dossier_url);
 }
 Promise.all([tab('Creadores'),tab('Contenido'),tab('Textos')]).then(([cr,ct,tx])=>{
-  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),bio:r[4],song:r[5],artist:r[6],img:r[7]||r[0],tw:num(r[8]||'0')}));renderAll();}
+  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),tw:num(r[4]),bio:r[5],song:r[6],artist:r[7],img:r[8]||r[0]}));renderAll();}
   if(ct.length){CONTENT.length=0;ct.forEach(r=>CONTENT.push({t:r[0],tag:r[1],brand:/^s/i.test(r[2]),v:r[3],unit:r[4],img:r[5],url:r[6]}));renderReels();}
   const T={};tx.forEach(r=>T[r[0].trim()]=r[1]);applyTexts(T);
 }).catch(()=>{});
