@@ -197,6 +197,24 @@ h2.in .wi{transform:none}
 .anthem i{color:var(--ink-2);font-style:normal}
 .total{font-size:12px;color:var(--ink-3);margin-top:30px;text-align:right}
 
+
+/* ============ PLAYLIST ============ */
+.playlist{padding:110px 0;overflow:hidden}
+.pl-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.pl-player{position:relative;padding-right:170px}
+.playlist h2{font-size:clamp(40px,5.2vw,76px)}
+.vinyl{position:absolute;right:-30px;top:50%;width:380px;aspect-ratio:1;margin-top:-190px;border-radius:50%;z-index:0;
+  background:radial-gradient(circle,var(--red) 0 17%,#111 17.5% 19%,transparent 19.5%),repeating-radial-gradient(circle,#161618 0 2px,#0b0b0c 2px 4px);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.06);animation:spin 6s linear infinite;transition:right .9s var(--ease)}
+.vinyl::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 30deg,transparent 0 12%,rgba(255,255,255,.09) 15%,transparent 20% 60%,rgba(255,255,255,.06) 64%,transparent 70%)}
+.vinyl::after{content:"";position:absolute;left:50%;top:50%;width:22%;height:22%;transform:translate(-50%,-50%);background:url(assets/img/mcw-simbolo.png) center/contain no-repeat;filter:brightness(0);opacity:.8}
+.pl-player:hover .vinyl{right:-90px}
+.pl-frame{position:relative;z-index:1;border:1px solid var(--line-2);background:#0d0d0f;padding:8px;box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(250,180,197,.08)}
+.pl-frame iframe{display:block;width:100%;height:380px;border:0;border-radius:10px;background:#121212}
+.pl-open{display:inline-flex;margin-top:30px}
+@media (max-width:1080px){.pl-grid{grid-template-columns:1fr;gap:50px}}
+@media (max-width:620px){.pl-player{padding-right:0}.vinyl{display:none}.pl-frame iframe{height:352px}}
+
 /* ============ CONTENIDO ============ */
 .content-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
 .big-num{font:700 clamp(84px,13vw,180px)/.82 var(--display);letter-spacing:-.01em;text-align:right}
@@ -467,11 +485,26 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   </div>
 </section>
 
+<section class="playlist" id="playlist">
+  <div class="wrap pl-grid">
+    <div>
+      <p class="eyebrow reveal"><b>03</b>Banda sonora</p>
+      <h2>Doce gustos,<br><em>una playlist</em></h2>
+      <p class="lead reveal" style="margin-top:26px">La playlist conjunta de Metal CREATORS: lo que suena cuando nos juntamos. Dale al play mientras echas un ojo al resto de la web.</p>
+      <div class="reveal" style="--d:.1s"><a class="btn ghost pl-open" data-spotify-link data-magnetic href="https://open.spotify.com/playlist/443gREqbSbWIAmIWvtgx9v" target="_blank" rel="noopener">Abrir en Spotify <span class="arr">→</span></a></div>
+    </div>
+    <div class="pl-player reveal" style="--d:.1s">
+      <div class="vinyl" aria-hidden="true"></div>
+      <div class="pl-frame"><iframe data-spotify title="Playlist de Metal CREATORS en Spotify" src="https://open.spotify.com/embed/playlist/443gREqbSbWIAmIWvtgx9v?utm_source=generator&amp;theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
 <section class="content" id="contenido">
   <div class="wrap">
     <div class="content-top">
       <div>
-        <p class="eyebrow reveal"><b>03</b>Contenido conjunto</p>
+        <p class="eyebrow reveal"><b>04</b>Contenido conjunto</p>
         <h2>Lo que pasa cuando<br>juntas a <em>12 creadores</em></h2>
         <p class="lead reveal" style="margin-top:26px">Desde el Metal Creators Weekend publicamos 10 piezas colaborativas entre reels y posts. Solo los reels superan las 750.000 visualizaciones en Instagram, sin contar stories, posts ni el resto de plataformas.</p>
       </div>
@@ -496,7 +529,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="brands" id="marcas">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal"><b>04</b>Acciones con marcas</p>
+      <p class="eyebrow reveal"><b>05</b>Acciones con marcas</p>
       <h2>Marcas que ya han<br><em>entrado al pit</em></h2>
     </div>
     <div class="brand-grid">
@@ -519,7 +552,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap weekend-grid">
     <div class="photo-frame reveal"><div class="pf-in"><img data-parallax=".08" src="assets/img/grupo-valdaracete.jpg" alt="El grupo de Metal CREATORS en Valdaracete, marzo de 2026" loading="lazy"></div></div>
     <div>
-      <p class="eyebrow reveal"><b>05</b>Donde empezó todo</p>
+      <p class="eyebrow reveal"><b>06</b>Donde empezó todo</p>
       <img class="weekend-logo reveal" style="--d:.05s" src="assets/img/logo-weekend.png" alt="Metal Creators Weekend">
       <p class="lead reveal" style="--d:.1s">El primer encuentro de creadores de metal de España y la comunidad hispanohablante: un fin de semana de talleres, creación de contenido, comunidad y música para conectar las voces de la escena, profesionalizar contenidos y abrir nuevas colaboraciones.</p>
       <ul class="facts reveal" style="--d:.15s">
@@ -541,7 +574,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="offer" id="colabora">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal"><b>06</b>Qué ofrecemos</p>
+      <p class="eyebrow reveal"><b>07</b>Qué ofrecemos</p>
       <h2>Cómo podemos<br><em>trabajar juntos</em></h2>
       <p class="lead reveal" style="margin-top:26px">Integramos las marcas de forma orgánica en formatos que ya funcionan con nuestra audiencia. Nada de anuncios metidos con calzador.</p>
     </div>
@@ -716,6 +749,7 @@ function applyTexts(T){
   document.querySelectorAll('[data-k]').forEach(el=>{const v=T[el.dataset.k]; if(!v) return; if(el.hasAttribute('data-count')) setFinal(el,v); else el.textContent=v;});
   if(T.email) document.querySelectorAll('[data-mail]').forEach(a=>a.href=a.href.replace(/mailto:[^?]*/,'mailto:'+T.email));
   if(T.dossier_url) document.querySelectorAll('[data-dossier]').forEach(a=>a.href=T.dossier_url);
+  const sp=(T.spotify_url||'').match(/playlist\/([A-Za-z0-9]+)/); if(sp){document.querySelectorAll('[data-spotify]').forEach(f=>f.src=`https://open.spotify.com/embed/playlist/${sp[1]}?utm_source=generator&theme=0`);document.querySelectorAll('[data-spotify-link]').forEach(a=>a.href=`https://open.spotify.com/playlist/${sp[1]}`);}
 }
 Promise.all([tab('Creadores'),tab('Contenido'),tab('Textos')]).then(([cr,ct,tx])=>{
   if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),tw:num(r[4]),bio:r[5],song:r[6],artist:r[7],img:r[8]||r[0]}));renderAll();}

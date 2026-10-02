@@ -44,3 +44,7 @@ Al principio del archivo, en `:root`: `--red` es el color de acento (ahora rosa 
 ## Logo 3D de la cabecera
 
 El logo cromado se dibuja con `assets/js/chrome-logo.js` a partir de `assets/img/logo-height.png` (relieve + silueta del logo). Si algún día cambia el logo, hay que regenerar esa imagen; si el navegador no soporta WebGL, se muestra una versión plana del logo.
+
+## Playlist de Spotify
+
+Para cambiar la playlist de la sección «Banda sonora», añade en la pestaña **Textos** de la hoja una fila con la clave `spotify_url` y el enlace de la playlist como valor.
