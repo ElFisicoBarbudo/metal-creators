@@ -227,6 +227,34 @@ footer img{height:26px;width:auto;opacity:.7}
   .pillars{grid-template-columns:1fr}
   .quote{grid-template-columns:1fr;gap:0}
 }
+
+/* ---- texturas metaleras ---- */
+/* arañazos sobre fondo */
+body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .9' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -6.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='.05'/%3E%3C/svg%3E")}
+/* bordes rasgados entre secciones */
+section:not(.hero)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:26px;pointer-events:none;z-index:2;
+  background:var(--bg);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V8L1170 14 1140 6 1100 18 1060 9 1020 20 980 7 940 15 900 5 860 19 820 10 780 22 740 8 700 16 660 4 620 18 580 11 540 21 500 6 460 17 420 9 380 23 340 7 300 15 260 5 220 19 180 10 140 22 100 8 60 17 20 6 0 12Z'/%3E%3C/svg%3E") 0 0/100% 100%;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V8L1170 14 1140 6 1100 18 1060 9 1020 20 980 7 940 15 900 5 860 19 820 10 780 22 740 8 700 16 660 4 620 18 580 11 540 21 500 6 460 17 420 9 380 23 340 7 300 15 260 5 220 19 180 10 140 22 100 8 60 17 20 6 0 12Z'/%3E%3C/svg%3E") 0 0/100% 100%}
+section:nth-of-type(even){background-color:var(--bg-2)}
+section:nth-of-type(odd):not(.hero)::before{background:var(--bg-2)}
+section:nth-of-type(even)::before{background:var(--bg)}
+/* marca de agua MCW */
+#quienes,#colabora{overflow:hidden}
+#quienes::after,#colabora::after{content:"";position:absolute;width:560px;height:560px;right:-140px;top:50%;transform:translateY(-50%) rotate(-8deg);
+  background:url(assets/img/mcw-mark.png) center/contain no-repeat;opacity:.045;filter:grayscale(1) brightness(2);pointer-events:none;z-index:0}
+#colabora::after{left:-160px;right:auto;transform:translateY(-50%) rotate(10deg)}
+#quienes>.wrap,#colabora>.wrap{position:relative;z-index:1}
+/* titulares desgastados */
+h2{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7 5.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7 5.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E")}
+/* cinta tipo cinta de precaución */
+.marquee{background-image:repeating-linear-gradient(-45deg,rgba(0,0,0,.18) 0 14px,transparent 14px 28px)}
+/* foto en bloque con corte metálico */
+.photo-band{position:relative;height:clamp(260px,42vw,520px);overflow:hidden;padding:0}
+.photo-band img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.2) brightness(.8)}
+.photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bg),transparent 25%,transparent 70%,var(--bg)),radial-gradient(transparent 50%,rgba(0,0,0,.6));mix-blend-mode:normal}
+.photo-band .tag{position:absolute;left:50%;bottom:12%;transform:translateX(-50%) rotate(-2deg);z-index:2;font:700 clamp(28px,6vw,80px)/1 var(--display);text-transform:uppercase;color:var(--red);letter-spacing:.04em;text-shadow:0 4px 30px #000;white-space:nowrap}
 </style>
 </head>
 <body>
