@@ -250,6 +250,14 @@ h2{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 .photo-band img:first-child{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.85) contrast(1.2) brightness(.8)}
 .photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bg),transparent 25%,transparent 70%,var(--bg)),radial-gradient(transparent 50%,rgba(0,0,0,.6));mix-blend-mode:normal}
 .photo-band .tag{position:absolute;left:50%;bottom:12%;transform:translateX(-50%) rotate(-2deg);z-index:2;font:700 clamp(28px,6vw,80px)/1 var(--display);text-transform:uppercase;color:var(--red);letter-spacing:.04em;text-shadow:0 4px 30px #000;white-space:nowrap}
+
+/* texturas de fondo (fluidos y papel rasgado) */
+.brands::before,.cta::before,.weekend::before,#colabora::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background-size:cover;background-position:center}
+.brands::before{background-image:url(assets/img/tex-celdas.jpg);opacity:.28;-webkit-mask:linear-gradient(#000 40%,transparent);mask:linear-gradient(#000 40%,transparent)}
+.cta::before{background-image:url(assets/img/tex-fluido.jpg);opacity:.42;-webkit-mask:radial-gradient(ellipse at 50% 120%,#000 10%,transparent 70%);mask:radial-gradient(ellipse at 50% 120%,#000 10%,transparent 70%)}
+.weekend::before{background-image:url(assets/img/tex-papel.jpg);opacity:.09;mix-blend-mode:screen}
+#colabora::before{background-image:url(assets/img/tex-ceniza.jpg);opacity:.2;-webkit-mask:linear-gradient(to left,#000,transparent 65%);mask:linear-gradient(to left,#000,transparent 65%)}
+.brands>.wrap,.cta>.wrap,.weekend>.wrap{position:relative;z-index:1}
 </style>
 </head>
 <body>
