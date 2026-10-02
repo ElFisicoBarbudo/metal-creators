@@ -7,10 +7,20 @@
 <meta name="description" content="12 creadores de contenido de metal, +3 millones de seguidores en Instagram, TikTok, YouTube y Twitch. Contenido colaborativo para marcas y festivales de la escena.">
 <meta property="og:title" content="Metal CREATORS">
 <meta property="og:description" content="La escena metal en redes desde 12 perspectivas únicas. +3M seguidores · +750k visualizaciones en contenido conjunto.">
-<meta property="og:image" content="assets/img/grupo-valdaracete.jpg">
+<meta property="og:image" content="https://elfisicobarbudo.github.io/metal-creators/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de Metal CREATORS: 12 creadores, +3M seguidores, +750k visualizaciones">
+<meta property="og:url" content="https://elfisicobarbudo.github.io/metal-creators/">
+<meta property="og:site_name" content="Metal CREATORS">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://elfisicobarbudo.github.io/metal-creators/">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
@@ -32,6 +42,11 @@ img{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit}
 ::selection{background:var(--red);color:#111}
+html{scrollbar-color:#3a3a41 var(--bg);scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2c2c32;border:2px solid var(--bg);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:var(--red)}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* grano y arañazos */
@@ -347,6 +362,14 @@ section>.wrap{position:relative;z-index:1}
 }
 
 /* responsive */
+@media (max-width:1180px){.nav ul{gap:22px}.nav ul a{letter-spacing:.14em}}
+@media (max-width:980px){
+  .nav ul{position:fixed;top:72px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,10,11,.97);border-bottom:1px solid var(--line);display:none}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:18px 20px;border-top:1px solid var(--line)}
+  .nav ul a::after{display:none}
+  .menu-toggle{display:block}
+}
 @media (max-width:1080px){
   .grid{grid-template-columns:repeat(3,1fr)}
   .brand-grid{grid-template-columns:repeat(2,1fr)}
@@ -417,6 +440,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
     <ul id="menu">
       <li><a href="#quienes" data-en="About us">Quiénes somos</a></li>
       <li><a href="#roster">Roster</a></li>
+      <li><a href="#playlist">Playlist</a></li>
       <li><a href="#contenido" data-en="Content">Contenido</a></li>
       <li><a href="#weekend">Weekend</a></li>
       <li><a href="#colabora" data-en="Work with us">Colabora</a></li>
