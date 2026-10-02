@@ -48,3 +48,17 @@ El logo cromado se dibuja con `assets/js/chrome-logo.js` a partir de `assets/img
 ## Playlist de Spotify
 
 Para cambiar la playlist de la sección «Banda sonora», añade en la pestaña **Textos** de la hoja una fila con la clave `spotify_url` y el enlace de la playlist como valor.
+
+## Versión en inglés
+
+- La web cambia de idioma con el botón ES/EN de arriba. Para mandar la web en inglés a una marca: https://elfisicobarbudo.github.io/metal-creators/?lang=en
+- Si no se elige nada, se muestra en inglés a quien tenga el navegador en otro idioma que no sea español.
+- Textos fijos: cada texto del `index.html` tiene su traducción al lado, en el atributo `data-en="..."` (o `data-en-html` si lleva negritas o saltos de línea).
+- Desde la hoja (todo opcional; si falta, se usa la traducción que viene en la web):
+  - Pestaña **Textos**: añade la misma clave terminada en `_en` (por ejemplo `cita_en`, `cita_autor_en`, `marca4_nombre_en`).
+  - Pestaña **Creadores**: columna J = bio en inglés.
+  - Pestaña **Contenido**: columna H = título en inglés.
+
+## Orden del roster
+
+Por defecto los creadores salen en orden aleatorio (cambia en cada visita). Los botones Instagram, TikTok, YouTube y Twitch los ordenan por seguidores; pulsando otra vez el mismo botón se vuelve al orden aleatorio.

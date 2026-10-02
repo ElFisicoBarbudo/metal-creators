@@ -172,7 +172,7 @@ h2.in .wi{transform:none}
 .roster{background:linear-gradient(var(--bg),var(--bg-2) 18%,var(--bg-2) 82%,var(--bg))}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:60px;flex-wrap:wrap}
 .filters{position:relative;display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
-.filters .ind{position:absolute;top:4px;left:4px;height:calc(100% - 8px);background:var(--ink);transition:transform .6s var(--ease),width .6s var(--ease),height .6s var(--ease);z-index:0}
+.filters .ind{position:absolute;top:4px;left:4px;height:calc(100% - 8px);background:var(--ink);transition:transform .6s var(--ease),width .6s var(--ease),height .6s var(--ease),opacity .4s;z-index:0;opacity:0}
 .filters button{position:relative;z-index:1;background:none;border:0;color:var(--ink-2);font:500 12px var(--display);letter-spacing:.18em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:color .4s}
 .filters button:hover{color:var(--ink)}
 .filters button.on{color:var(--bg)}
@@ -398,6 +398,20 @@ section>.wrap{position:relative;z-index:1}
 h2:not(.split),h2 .wi,.chrome,.photo-band .pb-tag .c{background:none!important;color:var(--ink);-webkit-text-fill-color:var(--ink);animation:none!important}
 h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 .photo-band .pb-tag .c{text-shadow:0 6px 30px rgba(0,0,0,.85)}
+
+/* idioma */
+.nav-r{display:flex;align-items:center;gap:16px}
+.lang{display:flex;border:1px solid var(--line-2)}
+.lang button{background:none;border:0;padding:8px 10px;font:600 12px/1 var(--display);letter-spacing:.14em;color:var(--ink-3);cursor:pointer;transition:color .3s,background .3s}
+.lang button:hover{color:var(--ink)}
+.lang button.on{background:var(--ink);color:var(--bg)}
+/* logo: cromado en escritorio, blanco estático en móvil */
+.logo3d .logo-static{display:none}
+@media (max-width:820px){
+  .logo3d{transform:none;filter:drop-shadow(0 0 40px rgba(250,180,197,.25))}
+  .logo3d canvas,.logo3d .flat{display:none}
+  .logo3d .logo-static{display:block;position:absolute;left:2.7%;top:5.6%;width:94.6%;height:auto}
+}
 </style>
 </head>
 <body class="no-js">
@@ -408,14 +422,17 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Metal CREATORS, inicio"><img src="assets/img/logo-creators.png" alt="Metal CREATORS"></a>
     <ul id="menu">
-      <li><a href="#quienes">Quiénes somos</a></li>
+      <li><a href="#quienes" data-en="About us">Quiénes somos</a></li>
       <li><a href="#roster">Roster</a></li>
-      <li><a href="#contenido">Contenido</a></li>
+      <li><a href="#contenido" data-en="Content">Contenido</a></li>
       <li><a href="#weekend">Weekend</a></li>
-      <li><a href="#colabora">Colabora</a></li>
+      <li><a href="#colabora" data-en="Work with us">Colabora</a></li>
     </ul>
-    <a class="btn" href="#contacto" data-magnetic>Hablemos</a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <div class="nav-r">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-label="Español">ES</button><button type="button" data-lang="en" aria-label="English">EN</button></div>
+      <a class="btn" href="#contacto" data-magnetic data-en="Let’s talk">Hablemos</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu" data-en="Menu">Menú</button>
+    </div>
   </div>
 </nav>
 
@@ -427,17 +444,18 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
     <h1 class="logo3d" data-chrome-logo data-height="assets/img/logo-height.png" role="img" aria-label="Metal CREATORS">
       <span class="flat"></span>
       <canvas></canvas>
+      <img class="logo-static" src="assets/img/logo-creators.png" alt="">
     </h1>
-    <p class="serif">Diversidad de estilos, pero con un riff común: <b>el metal</b></p>
+    <p class="serif" data-en-html="Different styles, one common riff: &lt;b&gt;metal&lt;/b&gt;">Diversidad de estilos, pero con un riff común: <b>el metal</b></p>
     <div class="hero-ctas">
-      <a class="btn" href="#roster" data-magnetic>Conoce al roster <span class="arr">→</span></a>
-      <a class="btn ghost" href="#contacto" data-magnetic>Colabora con nosotros</a>
-      <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener">Dossier (EN)</a>
+      <a class="btn" href="#roster" data-magnetic data-en-html="Meet the roster &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Conoce al roster <span class="arr">→</span></a>
+      <a class="btn ghost" href="#contacto" data-magnetic data-en="Work with us">Colabora con nosotros</a>
+      <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener" data-en="Dossier">Dossier (EN)</a>
     </div>
     <div class="stats">
-      <div class="stat"><b class="chrome" data-count>12</b><small>Creadores</small></div>
-      <div class="stat"><b><span class="pl">+</span><em class="chrome" id="followersTotal" data-count>3M</em></b><small>Seguidores</small></div>
-      <div class="stat"><b class="chrome" data-k="views_colabs" data-plus data-count>+750k</b><small>Views en colabs</small></div>
+      <div class="stat"><b class="chrome" data-count>12</b><small data-en="Creators">Creadores</small></div>
+      <div class="stat"><b><span class="pl">+</span><em class="chrome" id="followersTotal" data-count>3M</em></b><small data-en="Followers">Seguidores</small></div>
+      <div class="stat"><b class="chrome" data-k="views_colabs" data-plus data-count>+750k</b><small data-en="Views on collabs">Views en colabs</small></div>
     </div>
   </div>
 </header>
@@ -450,16 +468,16 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="about" id="quienes">
   <div class="wrap about-grid">
     <div>
-      <p class="eyebrow reveal"><b>01</b>Quiénes somos</p>
-      <h2>La escena metal en redes desde <em>12 perspectivas</em></h2>
-      <p class="lead reveal" style="margin-top:30px">Somos 12 creadores y creadoras de contenido que vivimos nuestra pasión por el metal desde ángulos muy distintos: divulgación científica, historia de la música, moda, maquillaje, fotografía, batería, ilustración, entretenimiento…</p>
-      <p class="lead reveal" style="--d:.1s">Hemos colaborado con marcas como Killstar, EMP, KOI Footwear, New Rock o Lively Ghosts, hemos cubierto festivales como Resurrection Fest, Wacken, Hellfest o Rock am Ring, y cada uno ha construido una comunidad fiel y activa. Juntos, sumamos más de 3 millones de seguidores.</p>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;01&lt;/b&gt;About us"><b>01</b>Quiénes somos</p>
+      <h2 data-en-html="The metal scene online from &lt;em&gt;12 perspectives&lt;/em&gt;">La escena metal en redes desde <em>12 perspectivas</em></h2>
+      <p class="lead reveal" style="margin-top:30px" data-en="We are 12 content creators living our passion for metal from very different angles: science communication, music history, fashion, makeup, photography, drums, illustration, entertainment…">Somos 12 creadores y creadoras de contenido que vivimos nuestra pasión por el metal desde ángulos muy distintos: divulgación científica, historia de la música, moda, maquillaje, fotografía, batería, ilustración, entretenimiento…</p>
+      <p class="lead reveal" style="--d:.1s" data-en="We’ve worked with brands like Killstar, EMP, KOI Footwear, New Rock and Lively Ghosts, covered festivals like Resurrection Fest, Wacken, Hellfest and Rock am Ring, and each of us has built a loyal, engaged community. Together, we have more than 3 million followers.">Hemos colaborado con marcas como Killstar, EMP, KOI Footwear, New Rock o Lively Ghosts, hemos cubierto festivales como Resurrection Fest, Wacken, Hellfest o Rock am Ring, y cada uno ha construido una comunidad fiel y activa. Juntos, sumamos más de 3 millones de seguidores.</p>
     </div>
     <div class="pillars">
-      <div class="pillar spot reveal" data-tilt><i>01</i><b>Audiencia nicho</b><p>Metalheads de España y Latinoamérica que confían en nuestras recomendaciones.</p></div>
-      <div class="pillar spot reveal" data-tilt style="--d:.08s"><i>02</i><b>Formatos propios</b><p>Retos, humor, juegos y dinámicas que funcionan en reel y en short.</p></div>
-      <div class="pillar spot reveal" data-tilt style="--d:.16s"><i>03</i><b>Alcance cruzado</b><p>Cada pieza colaborativa se publica en varias cuentas a la vez.</p></div>
-      <div class="pillar spot reveal" data-tilt style="--d:.24s"><i>04</i><b>Credibilidad</b><p>Somos parte de la escena: vamos a los conciertos, tocamos, cantamos y tatuamos.</p></div>
+      <div class="pillar spot reveal" data-tilt><i>01</i><b data-en="Niche audience">Audiencia nicho</b><p data-en="Metalheads from Spain and Latin America who trust our recommendations.">Metalheads de España y Latinoamérica que confían en nuestras recomendaciones.</p></div>
+      <div class="pillar spot reveal" data-tilt style="--d:.08s"><i>02</i><b data-en="Our own formats">Formatos propios</b><p data-en="Challenges, comedy, games and dynamics that work as reels and shorts.">Retos, humor, juegos y dinámicas que funcionan en reel y en short.</p></div>
+      <div class="pillar spot reveal" data-tilt style="--d:.16s"><i>03</i><b data-en="Cross-reach">Alcance cruzado</b><p data-en="Each collaborative piece is published on several accounts at once.">Cada pieza colaborativa se publica en varias cuentas a la vez.</p></div>
+      <div class="pillar spot reveal" data-tilt style="--d:.24s"><i>04</i><b data-en="Credibility">Credibilidad</b><p data-en="We’re part of the scene: we go to gigs, we play, sing and tattoo.">Somos parte de la escena: vamos a los conciertos, tocamos, cantamos y tatuamos.</p></div>
     </div>
   </div>
 </section>
@@ -468,12 +486,11 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap">
     <div class="section-head">
       <div>
-        <p class="eyebrow reveal"><b>02</b>El roster</p>
-        <h2>Doce voces,<br><em>un mismo riff</em></h2>
+        <p class="eyebrow reveal" data-en-html="&lt;b&gt;02&lt;/b&gt;The roster"><b>02</b>El roster</p>
+        <h2 data-en-html="Twelve voices,&lt;br&gt;&lt;em&gt;one riff&lt;/em&gt;">Doce voces,<br><em>un mismo riff</em></h2>
       </div>
-      <div class="filters reveal" role="group" aria-label="Ordenar roster">
+      <div class="filters reveal" role="group" aria-label="Ordenar roster por plataforma">
         <span class="ind" aria-hidden="true"></span>
-        <button class="on" data-sort="total">Alcance total</button>
         <button data-sort="ig">Instagram</button>
         <button data-sort="tt">TikTok</button>
         <button data-sort="yt">YouTube</button>
@@ -481,17 +498,17 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
       </div>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="total">Seguidores por plataforma según el último dossier (septiembre de 2026).</p>
+    <p class="total" data-en="Followers per platform according to our latest dossier (September 2026).">Seguidores por plataforma según el último dossier (septiembre de 2026).</p>
   </div>
 </section>
 
 <section class="playlist" id="playlist">
   <div class="wrap pl-grid">
     <div>
-      <p class="eyebrow reveal"><b>03</b>Banda sonora</p>
-      <h2>Doce gustos,<br><em>una playlist</em></h2>
-      <p class="lead reveal" style="margin-top:26px">La playlist conjunta de Metal CREATORS: lo que suena cuando nos juntamos. Dale al play mientras echas un ojo al resto de la web.</p>
-      <div class="reveal" style="--d:.1s"><a class="btn ghost pl-open" data-spotify-link data-magnetic href="https://open.spotify.com/playlist/443gREqbSbWIAmIWvtgx9v" target="_blank" rel="noopener">Abrir en Spotify <span class="arr">→</span></a></div>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;03&lt;/b&gt;Soundtrack"><b>03</b>Banda sonora</p>
+      <h2 data-en-html="Twelve tastes,&lt;br&gt;&lt;em&gt;one playlist&lt;/em&gt;">Doce gustos,<br><em>una playlist</em></h2>
+      <p class="lead reveal" style="margin-top:26px" data-en="The Metal CREATORS shared playlist: what plays when we get together. Hit play while you look around.">La playlist conjunta de Metal CREATORS: lo que suena cuando nos juntamos. Dale al play mientras echas un ojo al resto de la web.</p>
+      <div class="reveal" style="--d:.1s"><a class="btn ghost pl-open" data-spotify-link data-magnetic href="https://open.spotify.com/playlist/443gREqbSbWIAmIWvtgx9v" target="_blank" rel="noopener" data-en-html="Open in Spotify &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Abrir en Spotify <span class="arr">→</span></a></div>
     </div>
     <div class="pl-player reveal" style="--d:.1s">
       <div class="vinyl" aria-hidden="true"></div>
@@ -504,12 +521,12 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap">
     <div class="content-top">
       <div>
-        <p class="eyebrow reveal"><b>04</b>Contenido conjunto</p>
-        <h2>Lo que pasa cuando<br>juntas a <em>12 creadores</em></h2>
-        <p class="lead reveal" style="margin-top:26px">Desde el Metal Creators Weekend publicamos 10 piezas colaborativas entre reels y posts. Solo los reels superan las 750.000 visualizaciones en Instagram, sin contar stories, posts ni el resto de plataformas.</p>
+        <p class="eyebrow reveal" data-en-html="&lt;b&gt;04&lt;/b&gt;Joint content"><b>04</b>Contenido conjunto</p>
+        <h2 data-en-html="What happens when&lt;br&gt;you get &lt;em&gt;12 creators&lt;/em&gt; together">Lo que pasa cuando<br>juntas a <em>12 creadores</em></h2>
+        <p class="lead reveal" style="margin-top:26px" data-en="Since the Metal Creators Weekend we’ve published 10 collaborative pieces across reels and posts. The reels alone have passed 750,000 views on Instagram, not counting stories, posts or other platforms.">Desde el Metal Creators Weekend publicamos 10 piezas colaborativas entre reels y posts. Solo los reels superan las 750.000 visualizaciones en Instagram, sin contar stories, posts ni el resto de plataformas.</p>
       </div>
       <div class="reveal">
-        <div class="big-num"><span class="chrome" data-k="views_colabs" data-plus data-count>+750k</span><small>Visualizaciones en reels colaborativos</small></div>
+        <div class="big-num"><span class="chrome" data-k="views_colabs" data-plus data-count>+750k</span><small data-en="Views on collaborative reels">Visualizaciones en reels colaborativos</small></div>
         <div class="reel-ctrl">
           <button type="button" data-reel="-1" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
           <button type="button" data-reel="1" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -523,20 +540,20 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="photo-band" aria-label="Fiesta de disfraces de Metal CREATORS">
   <div class="pb-img" data-parallax=".22"><img src="assets/img/fiesta-disfraces.jpg" alt="Los creadores de Metal CREATORS disfrazados en la fiesta del Weekend"></div>
   <img class="band-sym" src="assets/img/mcw-simbolo.png" alt="">
-  <p class="pb-tag reveal"><span class="c">Juntos sonamos</span> <em>más fuerte</em></p>
+  <p class="pb-tag reveal" data-en-html="&lt;span class=&quot;c&quot;&gt;Louder&lt;/span&gt; &lt;em&gt;together&lt;/em&gt;"><span class="c">Juntos sonamos</span> <em>más fuerte</em></p>
 </section>
 
 <section class="brands" id="marcas">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal"><b>05</b>Acciones con marcas</p>
-      <h2>Marcas que ya han<br><em>entrado al pit</em></h2>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;05&lt;/b&gt;Brand partnerships"><b>05</b>Acciones con marcas</p>
+      <h2 data-en-html="Brands that have already&lt;br&gt;&lt;em&gt;entered the pit&lt;/em&gt;">Marcas que ya han<br><em>entrado al pit</em></h2>
     </div>
     <div class="brand-grid">
-      <div class="bcell spot reveal" data-tilt><b class="chrome" data-k="marca1_cifra" data-plus data-count>+300k</b><h3 data-k="marca1_nombre">Resurrection Fest</h3><p>Impresiones en posts colaborativos: «Descubre al impostor» I y II, «Adivina la portada» y un sorteo de merch con más de 2.200 comentarios.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.08s"><b class="chrome" data-k="marca2_cifra" data-plus data-count>+80k</b><h3 data-k="marca2_nombre">Nuclear Blast</h3><p>Impresiones del «This or that: Metal Edition», eligiendo entre bandas del sello.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.16s"><b class="chrome" data-k="marca3_cifra" data-plus data-count>+56k</b><h3 data-k="marca3_nombre">Killstar</h3><p>Impresiones de «Metal Moves», nuestra competición de pasos de mosh con prendas de la marca.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.24s"><b class="chrome" data-k="marca4_cifra" data-plus data-count>+260k</b><h3 data-k="marca4_nombre">Contenido propio</h3><p>Visualizaciones del contenido de humor que creamos por libre: fiesta de disfraces, «Superestrella», «Metalera se confiesa».</p></div>
+      <div class="bcell spot reveal" data-tilt><b class="chrome" data-k="marca1_cifra" data-plus data-count>+300k</b><h3 data-k="marca1_nombre">Resurrection Fest</h3><p data-en="Impressions on collaborative posts: “Spot the impostor” I and II, “Guess the cover” and a merch giveaway with over 2,200 comments.">Impresiones en posts colaborativos: «Descubre al impostor» I y II, «Adivina la portada» y un sorteo de merch con más de 2.200 comentarios.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.08s"><b class="chrome" data-k="marca2_cifra" data-plus data-count>+80k</b><h3 data-k="marca2_nombre">Nuclear Blast</h3><p data-en="Impressions on “This or that: Metal Edition”, choosing between the label’s bands.">Impresiones del «This or that: Metal Edition», eligiendo entre bandas del sello.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.16s"><b class="chrome" data-k="marca3_cifra" data-plus data-count>+56k</b><h3 data-k="marca3_nombre">Killstar</h3><p data-en="Impressions on “Metal Moves”, our mosh-move contest wearing the brand’s clothes.">Impresiones de «Metal Moves», nuestra competición de pasos de mosh con prendas de la marca.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.24s"><b class="chrome" data-k="marca4_cifra" data-plus data-count>+260k</b><h3 data-k="marca4_nombre">Contenido propio</h3><p data-en="Views on the comedy content we make on our own: costume party, “Superstar”, “A metalhead confesses”.">Visualizaciones del contenido de humor que creamos por libre: fiesta de disfraces, «Superestrella», «Metalera se confiesa».</p></div>
     </div>
     <div class="quote reveal">
       <div class="mark">“</div>
@@ -552,13 +569,13 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap weekend-grid">
     <div class="photo-frame reveal"><div class="pf-in"><img data-parallax=".08" src="assets/img/grupo-valdaracete.jpg" alt="El grupo de Metal CREATORS en Valdaracete, marzo de 2026" loading="lazy"></div></div>
     <div>
-      <p class="eyebrow reveal"><b>06</b>Donde empezó todo</p>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;06&lt;/b&gt;Where it all began"><b>06</b>Donde empezó todo</p>
       <img class="weekend-logo reveal" style="--d:.05s" src="assets/img/logo-weekend.png" alt="Metal Creators Weekend">
-      <p class="lead reveal" style="--d:.1s">El primer encuentro de creadores de metal de España y la comunidad hispanohablante: un fin de semana de talleres, creación de contenido, comunidad y música para conectar las voces de la escena, profesionalizar contenidos y abrir nuevas colaboraciones.</p>
+      <p class="lead reveal" style="--d:.1s" data-en="The first gathering of metal content creators from Spain and the Spanish-speaking world: a weekend of workshops, content creation, community and music to connect the voices of the scene, level up our content and open the door to new collaborations.">El primer encuentro de creadores de metal de España y la comunidad hispanohablante: un fin de semana de talleres, creación de contenido, comunidad y música para conectar las voces de la escena, profesionalizar contenidos y abrir nuevas colaboraciones.</p>
       <ul class="facts reveal" style="--d:.15s">
-        <li><b>Cuándo</b>20 al 22 de marzo de 2026</li>
-        <li><b>Dónde</b>Valdaracete, Comunidad de Madrid</li>
-        <li><b>Quién</b>11 creadores bajo el mismo techo</li>
+        <li data-en-html="&lt;b&gt;When&lt;/b&gt;March 20–22, 2026"><b>Cuándo</b>20 al 22 de marzo de 2026</li>
+        <li data-en-html="&lt;b&gt;Where&lt;/b&gt;Valdaracete, Madrid region"><b>Dónde</b>Valdaracete, Comunidad de Madrid</li>
+        <li data-en-html="&lt;b&gt;Who&lt;/b&gt;11 creators under one roof"><b>Quién</b>11 creadores bajo el mismo techo</li>
       </ul>
     </div>
   </div>
@@ -574,17 +591,17 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="offer" id="colabora">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal"><b>07</b>Qué ofrecemos</p>
-      <h2>Cómo podemos<br><em>trabajar juntos</em></h2>
-      <p class="lead reveal" style="margin-top:26px">Integramos las marcas de forma orgánica en formatos que ya funcionan con nuestra audiencia. Nada de anuncios metidos con calzador.</p>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;07&lt;/b&gt;What we offer"><b>07</b>Qué ofrecemos</p>
+      <h2 data-en-html="How we can&lt;br&gt;&lt;em&gt;work together&lt;/em&gt;">Cómo podemos<br><em>trabajar juntos</em></h2>
+      <p class="lead reveal" style="margin-top:26px" data-en="We integrate brands organically into formats that already work with our audience. No shoehorned ads.">Integramos las marcas de forma orgánica en formatos que ya funcionan con nuestra audiencia. Nada de anuncios metidos con calzador.</p>
     </div>
     <div class="offer-grid">
-      <div class="ocard spot reveal" data-tilt><span class="n">01</span><h3>Contenido colaborativo</h3><p>Reels y shorts protagonizados por varios creadores y publicados en collab, multiplicando el alcance de cada pieza.</p></div>
-      <div class="ocard spot reveal" data-tilt style="--d:.08s"><span class="n">02</span><h3>Campañas por creador</h3><p>Elegimos del roster los perfiles que mejor encajan con tu producto: moda, música, ciencia, maquillaje, humor…</p></div>
-      <div class="ocard spot reveal" data-tilt style="--d:.16s"><span class="n">03</span><h3>Sorteos y lanzamientos</h3><p>Dinámicas de participación con miles de comentarios, ideales para merch, discos, entradas o colecciones.</p></div>
-      <div class="ocard spot reveal" data-tilt><span class="n">04</span><h3>Festivales</h3><p>Cobertura y formatos antes, durante y después del festival, como ya hicimos con Resurrection Fest.</p></div>
-      <div class="ocard spot reveal" data-tilt style="--d:.08s"><span class="n">05</span><h3>Encuentros y eventos</h3><p>Presencia en el Metal Creators Weekend: talleres, mesas redondas, merchandising y contenido grabado en la casa.</p></div>
-      <div class="ocard spot reveal" data-tilt style="--d:.16s"><span class="n">06</span><h3>Formatos a medida</h3><p>¿Tienes una idea loca? Probablemente se nos ocurra una aún más loca. Hablemos.</p></div>
+      <div class="ocard spot reveal" data-tilt><span class="n">01</span><h3 data-en="Collaborative content">Contenido colaborativo</h3><p data-en="Reels and shorts starring several creators and published as collabs, multiplying the reach of every piece.">Reels y shorts protagonizados por varios creadores y publicados en collab, multiplicando el alcance de cada pieza.</p></div>
+      <div class="ocard spot reveal" data-tilt style="--d:.08s"><span class="n">02</span><h3 data-en="Creator campaigns">Campañas por creador</h3><p data-en="We pick the profiles from the roster that best fit your product: fashion, music, science, makeup, comedy…">Elegimos del roster los perfiles que mejor encajan con tu producto: moda, música, ciencia, maquillaje, humor…</p></div>
+      <div class="ocard spot reveal" data-tilt style="--d:.16s"><span class="n">03</span><h3 data-en="Giveaways and launches">Sorteos y lanzamientos</h3><p data-en="Engagement mechanics with thousands of comments, ideal for merch, albums, tickets or collections.">Dinámicas de participación con miles de comentarios, ideales para merch, discos, entradas o colecciones.</p></div>
+      <div class="ocard spot reveal" data-tilt><span class="n">04</span><h3 data-en="Festivals">Festivales</h3><p data-en="Coverage and formats before, during and after the festival, like we did with Resurrection Fest.">Cobertura y formatos antes, durante y después del festival, como ya hicimos con Resurrection Fest.</p></div>
+      <div class="ocard spot reveal" data-tilt style="--d:.08s"><span class="n">05</span><h3 data-en="Meetups and events">Encuentros y eventos</h3><p data-en="Presence at the Metal Creators Weekend: workshops, panels, merch and content filmed at the house.">Presencia en el Metal Creators Weekend: talleres, mesas redondas, merchandising y contenido grabado en la casa.</p></div>
+      <div class="ocard spot reveal" data-tilt style="--d:.16s"><span class="n">06</span><h3 data-en="Custom formats">Formatos a medida</h3><p data-en="Got a crazy idea? We’ll probably come up with an even crazier one. Let’s talk.">¿Tienes una idea loca? Probablemente se nos ocurra una aún más loca. Hablemos.</p></div>
     </div>
   </div>
 </section>
@@ -592,11 +609,11 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="cta" id="contacto">
   <img class="mark-bg" src="assets/img/mcw-simbolo.png" alt="">
   <div class="wrap">
-    <p class="eyebrow reveal">El futuro del metal en redes</p>
+    <p class="eyebrow reveal" data-en="The future of metal online">El futuro del metal en redes</p>
     <h2>Camp Rock…<br><em>goes metal!</em></h2>
-    <p class="lead reveal">Es broma. Pero si has llegado hasta aquí y te interesa, hagamos una llamada. Estamos abiertos a nuevas ideas y propuestas.</p>
-    <div class="hero-ctas reveal" style="--d:.1s"><a class="btn" data-mail data-magnetic href="mailto:metalcreatorsweekend@gmail.com?subject=Colaboraci%C3%B3n%20con%20Metal%20CREATORS">Escríbenos <span class="arr">→</span></a>
-    <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener">Dossier (EN)</a></div>
+    <p class="lead reveal" data-en="Just kidding. But if you’ve made it this far and you’re interested, let’s jump on a call. We’re open to new ideas and proposals.">Es broma. Pero si has llegado hasta aquí y te interesa, hagamos una llamada. Estamos abiertos a nuevas ideas y propuestas.</p>
+    <div class="hero-ctas reveal" style="--d:.1s"><a class="btn" data-mail data-magnetic href="mailto:metalcreatorsweekend@gmail.com?subject=Colaboraci%C3%B3n%20con%20Metal%20CREATORS" data-en-html="Email us &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Escríbenos <span class="arr">→</span></a>
+    <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener" data-en="Dossier">Dossier (EN)</a></div>
     <a class="mail reveal" style="--d:.15s" data-mail data-k="email" href="mailto:metalcreatorsweekend@gmail.com">metalcreatorsweekend@gmail.com</a>
   </div>
 </section>
@@ -604,13 +621,51 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <footer>
   <div class="wrap">
     <a href="#top" aria-label="Volver arriba"><img src="assets/img/logo-creators.png" alt="Metal CREATORS"></a>
-    <nav aria-label="Pie de página"><a href="#quienes">Quiénes somos</a><a href="#roster">Roster</a><a href="#contenido">Contenido</a><a href="#colabora">Colabora</a><a href="#top">Arriba ↑</a></nav>
-    <span>© 2026 Metal CREATORS · Hecho con distorsión en España</span>
+    <nav aria-label="Pie de página"><a href="#quienes" data-en="About us">Quiénes somos</a><a href="#roster">Roster</a><a href="#contenido" data-en="Content">Contenido</a><a href="#colabora" data-en="Work with us">Colabora</a><a href="#top" data-en="Top ↑">Arriba ↑</a></nav>
+    <span data-en="© 2026 Metal CREATORS · Made with distortion in Spain">© 2026 Metal CREATORS · Hecho con distorsión en España</span>
   </div>
 </footer>
 
 <script>
 document.body.classList.remove('no-js');
+// ===== IDIOMA (ES / EN) =====
+// Textos en inglés: atributos data-en / data-en-html en el HTML, y estos diccionarios para lo que se genera con JS.
+const EN_DEFAULTS = {cita:'Honestly, what you lot do together at Metal Creators is sick.', cita_autor:'Any self-respecting metalhead', marca4_nombre:'Original content'};
+const BIO_EN = {
+  "maylenchan":"Metalcore all the way, interviews and a textbook nerd",
+  "sandracollador":"Metal lover, full-time makeup and alternative outfits",
+  "stairwaytothemoshpit":"Modern metal. All the time",
+  "dehacheoficial":"Modern metal and a lot of noise on the drums",
+  "blanquinni":"Where mainstream meets underground (international): rock, metal, punk",
+  "elfisicobarbudo":"Science, metal and other seriously heavy stuff",
+  "davidgmino":"Metal, rock and anything that shakes",
+  "juanpe11metal":"Metalcore, reactions and lots of Sleep Token",
+  "mr.gonar":"Artist, art communicator and part-time Pink Power Ranger",
+  "doctorandergraun":"Talks underground culture and aesthetic phenomena, tattoos and sings in Waterviolet",
+  "mitsyn_":"Metal in the veins and creative chaos: covers, recommendations, vlogs and nerdy stuff",
+  "aliblackbet":"Alternative lifestyle with VERY dark humour"
+};
+const TITLE_EN = {"Superestrella":"Superstar","Adivina la portada":"Guess the cover","Descubre al impostor I":"Spot the impostor I","Descubre al impostor II":"Spot the impostor II","Fiesta de disfraces I":"Costume party I","Fiesta de disfraces II":"Costume party II","Metalera se confiesa":"A metalhead confesses","Sorteo de merch":"Merch giveaway"};
+let LANG = (()=>{ const q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='es') return q;
+  try{ const s=localStorage.getItem('mc-lang'); if(s==='en'||s==='es') return s; }catch(e){}
+  return /^es/i.test(navigator.language||'es') ? 'es' : 'en'; })();
+const L = (es,en) => LANG==='en' ? en : es;
+const DEC = () => LANG==='en' ? '.' : ',';
+document.querySelectorAll('[data-en],[data-en-html]').forEach(el=>{ el.dataset.es = el.hasAttribute('data-en-html') ? el.innerHTML : el.textContent; });
+document.querySelectorAll('[data-k]').forEach(el=>{ el.dataset.es0 = el.textContent; });
+function swapTexts(){
+  const changed=[];
+  document.querySelectorAll('[data-en],[data-en-html]').forEach(el=>{
+    const html=el.hasAttribute('data-en-html'); const v = LANG==='en' ? (html?el.dataset.enHtml:el.dataset.en) : el.dataset.es;
+    if(html) el.innerHTML=v; else el.textContent=v; changed.push(el);
+  });
+  document.documentElement.lang = LANG;
+  document.title = L('Metal CREATORS · Hub de creadores de metal','Metal CREATORS · Metal content creators hub');
+  document.querySelectorAll('a[data-mail][href*="subject="]').forEach(a=>a.href=a.href.replace(/subject=[^&]*/,'subject='+encodeURIComponent(L('Colaboración con Metal CREATORS','Collaboration with Metal CREATORS'))));
+  document.querySelectorAll('[data-lang]').forEach(b=>{ b.classList.toggle('on', b.dataset.lang===LANG); b.setAttribute('aria-pressed', b.dataset.lang===LANG); });
+  return changed;
+}
+if(LANG==='en') swapTexts(); else document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang==='es'));
 // ===== DATOS: edita aquí para actualizar la web =====
 // Seguidores en miles (k). url: enlace al perfil principal.
 const CREATORS = [
@@ -651,18 +706,21 @@ const ICON = {
   note:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v12.3A3.5 3.5 0 1 0 11 18.5V7h8v6.3a3.5 3.5 0 1 0 2 3.2V3H9z"/></svg>',
   play:'<svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg>'
 };
-const fmt = k => k >= 1000 ? (k/1000).toFixed(k%1000?1:0).replace('.',',')+'M'
-  : k >= 1 ? (Math.round(k*10)/10).toString().replace('.',',')+'k' : Math.round(k*1000).toString();
-let sortKey='total';
+const fmt = k => k >= 1000 ? (k/1000).toFixed(k%1000?1:0).replace('.',DEC())+'M'
+  : k >= 1 ? (Math.round(k*10)/10).toString().replace('.',DEC())+'k' : Math.round(k*1000).toString();
+let sortKey='rnd';
+// Orden por defecto: aleatorio (se sortea una vez por visita)
+const RND={}; const rnd=c=>RND[c.h]??(RND[c.h]=Math.random());
+const sorter=k=>k==='rnd'?(a,b)=>rnd(a)-rnd(b):(a,b)=>b[k]-a[k];
 function setFinal(el,v){ el.dataset.final=v; if(!el._counting) el.textContent=v; }
 function renderAll(){
   CREATORS.forEach(c => { c.tw = c.tw||0; c.total = c.ig + c.tt + c.yt + c.tw; });
   const sum = CREATORS.reduce((a,c)=>a+c.total,0);
-  setFinal(document.getElementById('followersTotal'), sum>=1000 ? (Math.floor(sum/100)/10).toString().replace('.',',') + 'M' : Math.round(sum)+'k');
+  setFinal(document.getElementById('followersTotal'), sum>=1000 ? (Math.floor(sum/100)/10).toString().replace('.',DEC()) + 'M' : Math.round(sum)+'k');
   buildGrid();
   const all = CREATORS.map(c=>c.h);
   fillBand('marquee', all);
-  fillBand('bandB', ['Metal','Ciencia','Moda','Maquillaje','Batería','Ilustración','Humor','Música','Tatuaje','Festivales']);
+  fillBand('bandB', L(['Metal','Ciencia','Moda','Maquillaje','Batería','Ilustración','Humor','Música','Tatuaje','Festivales'],['Metal','Science','Fashion','Makeup','Drums','Illustration','Comedy','Music','Tattoo','Festivals']));
 }
 function fillBand(id, words){
   const tr=document.getElementById(id); const html=words.map(x=>`<span>${x}</span>`).join('');
@@ -670,10 +728,10 @@ function fillBand(id, words){
 }
 
 function cardHTML(c,key){ return `
-    <a class="card spot" data-tilt data-h="${c.h}" href="https://www.instagram.com/${c.h}/" target="_blank" rel="noopener" aria-label="@${c.h} en Instagram">
-      <div class="ph"><img src="assets/creators/${c.img}.jpg" alt="@${c.h}" loading="lazy"><span class="rank">${fmt(c[key])} ${key==='total'?'total':''}</span></div>
+    <a class="card spot" data-tilt data-h="${c.h}" href="https://www.instagram.com/${c.h}/" target="_blank" rel="noopener" aria-label="@${c.h} ${L('en','on')} Instagram">
+      <div class="ph"><img src="assets/creators/${c.img}.jpg" alt="@${c.h}" loading="lazy"><span class="rank"${key==='rnd'?' hidden':''}>${key==='rnd'?'':fmt(c[key])}</span></div>
       <h3>@${c.h}</h3>
-      <p class="bio">${c.bio}</p>
+      <p class="bio">${LANG==='en'?(c.bio_en||BIO_EN[c.h]||c.bio):c.bio}</p>
       <div class="nums">
         <span class="num" title="Instagram">${ICON.ig}${fmt(c.ig)}</span>
         <span class="num" title="TikTok">${ICON.tt}${fmt(c.tt)}</span>
@@ -683,7 +741,7 @@ function cardHTML(c,key){ return `
       <p class="anthem">${ICON.note}<span>${c.song} · <i>${c.artist}</i></span></p>
     </a>`; }
 function buildGrid(){
-  const list=[...CREATORS].sort((a,b)=>b[sortKey]-a[sortKey]);
+  const list=[...CREATORS].sort(sorter(sortKey));
   const g=document.getElementById('grid'); g.innerHTML=list.map(c=>cardHTML(c,sortKey)).join('');
   g.querySelectorAll('.card').forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--d',(i%4)*.07+'s');io&&io.observe(el)});
 }
@@ -692,9 +750,9 @@ function renderGrid(key){
   sortKey=key;
   const g=document.getElementById('grid'); const cards=[...g.children];
   const first=new Map(cards.map(el=>[el.dataset.h,el.getBoundingClientRect()]));
-  const list=[...CREATORS].sort((a,b)=>b[key]-a[key]);
+  const list=[...CREATORS].sort(sorter(key));
   list.forEach(c=>{const el=g.querySelector(`[data-h="${CSS.escape(c.h)}"]`); if(!el) return;
-    el.querySelector('.rank').textContent=`${fmt(c[key])} ${key==='total'?'total':''}`; g.appendChild(el);});
+    const r=el.querySelector('.rank'); r.hidden=key==='rnd'; if(key!=='rnd') r.textContent=fmt(c[key]); g.appendChild(el);});
   if(REDUCE) return;
   [...g.children].forEach((el,i)=>{const a=first.get(el.dataset.h),b=el.getBoundingClientRect(); if(!a) return;
     const dx=a.left-b.left,dy=a.top-b.top; if(!dx&&!dy) return;
@@ -704,22 +762,27 @@ const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let io;
 renderAll();
 const filt=document.querySelector('.filters'), ind=filt.querySelector('.ind');
-function moveInd(){const b=filt.querySelector('button.on'); if(!b) return; ind.style.width=b.offsetWidth+'px'; ind.style.height=b.offsetHeight+'px'; ind.style.transform=`translate(${b.offsetLeft-4}px,${b.offsetTop-4}px)`;}
+function moveInd(){const b=filt.querySelector('button.on'); ind.style.opacity=b?1:0; if(!b) return; ind.style.width=b.offsetWidth+'px'; ind.style.height=b.offsetHeight+'px'; ind.style.transform=`translate(${b.offsetLeft-4}px,${b.offsetTop-4}px)`;}
 filt.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-  filt.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); moveInd();
-  renderGrid(b.dataset.sort);
+  // pulsar el botón activo otra vez vuelve al orden aleatorio
+  const off=b.classList.contains('on');
+  filt.querySelectorAll('button').forEach(x=>x.classList.toggle('on',!off&&x===b)); moveInd();
+  renderGrid(off?'rnd':b.dataset.sort);
 }));
 addEventListener('resize',moveInd); (document.fonts?document.fonts.ready:Promise.resolve()).then(moveInd); moveInd();
 
 function renderReels(){ document.getElementById('reels').innerHTML = CONTENT.map((c,i)=>{
   const href = c.url || (c.ig ? `https://www.instagram.com/${c.ig}/` : `assets/content/${c.img}.jpg`);
   const ext = !!(c.url || c.ig);
-  return `<a class="reel" href="${href}" ${ext?'target="_blank" rel="noopener"':'data-lightbox'} aria-label="Ver ${c.t}" draggable="false">
-    <div class="thumb"><img src="assets/content/${c.img}.jpg" alt="${c.t}" draggable="false" loading="lazy">
+  const title = LANG==='en' ? (c.t_en||TITLE_EN[c.t]||c.t) : c.t;
+  const unit = LANG==='en' ? ({comentarios:'comments',visualizaciones:'views'}[(c.unit||'').toLowerCase()]||c.unit||'views') : (c.unit||'visualizaciones');
+  const tag = LANG==='en' && /^humor$/i.test(c.tag) ? 'Comedy' : c.tag;
+  return `<a class="reel" href="${href}" ${ext?'target="_blank" rel="noopener"':'data-lightbox'} aria-label="${L('Ver','Watch')} ${title}" draggable="false">
+    <div class="thumb"><img src="assets/content/${c.img}.jpg" alt="${title}" draggable="false" loading="lazy">
       <span class="idx">${String(i+1).padStart(2,'0')}</span>
-      <span class="views">${c.v}<small>${c.unit||'visualizaciones'}</small></span>
+      <span class="views">${c.v}<small>${unit}</small></span>
       <span class="play">${ICON.play}</span></div>
-    <h4>${c.t}</h4><span class="tag ${c.brand?'brand':''}">${c.tag}</span>
+    <h4>${title}</h4><span class="tag ${c.brand?'brand':''}">${tag}</span>
   </a>`}).join(''); }
 renderReels();
 
@@ -745,15 +808,19 @@ function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;
   if(f||r.length){r.push(f);rows.push(r)}return rows.slice(1).filter(x=>x.some(v=>v.trim()));}
 const tab = n => fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(n)}`).then(r=>{if(!r.ok)throw 0;return r.text()}).then(parseCSV);
 const num = v => parseFloat(String(v).replace(',','.'))||0;
+let TXT = {};
 function applyTexts(T){
-  document.querySelectorAll('[data-k]').forEach(el=>{const v=T[el.dataset.k]; if(!v) return; if(el.hasAttribute('data-count')) setFinal(el,v); else el.textContent=v;});
+  TXT = T;
+  document.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k;
+    const v = LANG==='en' ? (T[k+'_en']||EN_DEFAULTS[k]||T[k]||el.dataset.es0) : (T[k]||el.dataset.es0);
+    if(!v) return; if(el.hasAttribute('data-count')) setFinal(el,v); else el.textContent=v;});
   if(T.email) document.querySelectorAll('[data-mail]').forEach(a=>a.href=a.href.replace(/mailto:[^?]*/,'mailto:'+T.email));
   if(T.dossier_url) document.querySelectorAll('[data-dossier]').forEach(a=>a.href=T.dossier_url);
-  const sp=(T.spotify_url||'').match(/playlist\/([A-Za-z0-9]+)/); if(sp){document.querySelectorAll('[data-spotify]').forEach(f=>f.src=`https://open.spotify.com/embed/playlist/${sp[1]}?utm_source=generator&theme=0`);document.querySelectorAll('[data-spotify-link]').forEach(a=>a.href=`https://open.spotify.com/playlist/${sp[1]}`);}
+  const sp=(T.spotify_url||'').match(/playlist\/([A-Za-z0-9]+)/); if(sp){document.querySelectorAll('[data-spotify]').forEach(f=>{const u=`https://open.spotify.com/embed/playlist/${sp[1]}?utm_source=generator&theme=0`; if(f.src!==u) f.src=u;});document.querySelectorAll('[data-spotify-link]').forEach(a=>a.href=`https://open.spotify.com/playlist/${sp[1]}`);}
 }
 Promise.all([tab('Creadores'),tab('Contenido'),tab('Textos')]).then(([cr,ct,tx])=>{
-  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),tw:num(r[4]),bio:r[5],song:r[6],artist:r[7],img:r[8]||r[0]}));renderAll();}
-  if(ct.length){CONTENT.length=0;ct.forEach(r=>CONTENT.push({t:r[0],tag:r[1],brand:/^s/i.test(r[2]),v:r[3],unit:r[4],img:r[5],url:r[6]}));renderReels();}
+  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),tw:num(r[4]),bio:r[5],song:r[6],artist:r[7],img:r[8]||r[0],bio_en:r[9]}));renderAll();}
+  if(ct.length){CONTENT.length=0;ct.forEach(r=>CONTENT.push({t:r[0],tag:r[1],brand:/^s/i.test(r[2]),v:r[3],unit:r[4],img:r[5],url:r[6],t_en:r[7]}));renderReels();}
   const T={};tx.forEach(r=>T[r[0].trim()]=r[1]);applyTexts(T);
 }).catch(()=>{});
 
@@ -785,6 +852,18 @@ function split(h){
   walk(h); h.classList.add('split');
 }
 document.querySelectorAll('h2').forEach(split);
+if(LANG==='en') applyTexts({});
+
+// cambio de idioma
+function setLang(l){
+  if(l===LANG) return; LANG=l;
+  try{ localStorage.setItem('mc-lang',l); }catch(e){}
+  const u=new URL(location.href); if(l==='en') u.searchParams.set('lang','en'); else u.searchParams.delete('lang'); history.replaceState(null,'',u);
+  swapTexts().forEach(el=>{ if(el.tagName==='H2') split(el); });
+  renderAll(); renderReels(); applyTexts(TXT); moveInd();
+  document.querySelectorAll('.hero [data-count],.big-num [data-count],.bcell [data-count]').forEach(el=>{ if(el.dataset.final) el.textContent=el.dataset.final; });
+}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
 // ===== contadores =====
 function parseNum(s){const m=String(s).trim().match(/^([^\d]*)([\d.,]+)(.*)$/); if(!m) return null;
