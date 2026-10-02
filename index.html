@@ -18,7 +18,7 @@
 :root{
   --bg:#111111; --bg-2:#181818; --panel:#1d1d1d; --line:#2e2e2e;
   --ink:#eeebe5; --ink-2:#b4afa7; --ink-3:#7d7871;
-  --red:#FF1D8D; --red-2:#ff5cab;
+  --red:#fab4c5; --red-2:#ffd3de;
   --display:"Oswald",Impact,sans-serif; --body:"Inter",system-ui,sans-serif; --serif:"Cormorant Garamond",Georgia,serif;
   --wrap:1200px;
 }
@@ -27,7 +27,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit}
-::selection{background:var(--red);color:#fff}
+::selection{background:var(--red);color:#111}
 
 /* grain */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;
@@ -50,7 +50,7 @@ h2 em{font-style:normal;color:var(--red)}
 .nav ul{display:flex;gap:30px;list-style:none}
 .nav ul a{font:500 14px var(--display);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);transition:color .2s}
 .nav ul a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:10px;font:600 14px var(--display);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:14px 24px;border:1px solid var(--red);background:var(--red);color:#fff;transition:transform .2s,background .2s,box-shadow .2s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 14px var(--display);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:14px 24px;border:1px solid var(--red);background:var(--red);color:#151515;transition:transform .2s,background .2s,box-shadow .2s;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
 .btn:hover{background:var(--red-2);transform:translateY(-2px);box-shadow:0 10px 30px -10px var(--red)}
 .btn.ghost{background:transparent;border-color:var(--ink-3);color:var(--ink)}
 .btn.ghost:hover{border-color:var(--ink);background:rgba(255,255,255,.04);box-shadow:none}
@@ -62,11 +62,11 @@ h2 em{font-style:normal;color:var(--red)}
 .hero-bg{position:absolute;inset:0;z-index:-1}
 .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(1) contrast(1.15)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(17,17,17,.2),var(--bg) 75%),linear-gradient(to bottom,transparent 60%,var(--bg))}
-.hero-logo{width:min(860px,100%);margin:0 auto;filter:drop-shadow(0 0 40px rgba(255,29,141,.25));animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.hero-logo{width:min(860px,100%);margin:0 auto;filter:drop-shadow(0 0 40px rgba(250,180,197,.25));animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
 .hero .serif{margin:26px auto 0;max-width:30ch;animation:rise 1.2s .15s cubic-bezier(.2,.7,.2,1) both}
 .hero .serif b{font-weight:600;color:var(--red-2)}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;animation:rise 1.2s .3s cubic-bezier(.2,.7,.2,1) both}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);animation:rise 1.2s .45s cubic-bezier(.2,.7,.2,1) both}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);animation:rise 1.2s .45s cubic-bezier(.2,.7,.2,1) both}
 .stat{padding:26px 10px;border-right:1px solid var(--line)}
 .stat:last-child{border-right:0}
 .stat b{display:block;font:700 clamp(34px,4.6vw,56px)/1 var(--display);letter-spacing:.01em}
@@ -99,7 +99,7 @@ h2 em{font-style:normal;color:var(--red)}
 .filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{position:relative;background:var(--panel);border:1px solid var(--line);padding:16px 16px 18px;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .35s;text-decoration:none}
-.card:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 22px 50px -24px rgba(255,29,141,.55)}
+.card:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 22px 50px -24px rgba(250,180,197,.55)}
 .card .ph{position:relative;aspect-ratio:1;overflow:hidden;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:saturate(.92)}
 .card:hover .ph img{transform:scale(1.06);filter:saturate(1.1)}
@@ -129,7 +129,7 @@ h2 em{font-style:normal;color:var(--red)}
 .reel .views small{display:block;font:500 10px var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);margin-top:4px}
 .reel .play{position:absolute;right:12px;bottom:12px;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--red);display:grid;place-items:center;opacity:0;transform:scale(.7);transition:all .3s}
 .reel:hover .play{opacity:1;transform:none}
-.reel .play svg{width:12px;fill:#fff;margin-left:2px}
+.reel .play svg{width:12px;fill:#151515;margin-left:2px}
 .reel h4{font:600 17px var(--display);text-transform:uppercase;letter-spacing:.04em;margin-top:12px}
 .tag{display:inline-block;font:500 11px var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 .tag.brand{color:var(--red-2)}
@@ -162,15 +162,7 @@ h2 em{font-style:normal;color:var(--red)}
 .facts li b{color:var(--red);font-size:13px;letter-spacing:.2em;width:70px;flex:none}
 
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;grid-auto-flow:dense;gap:14px}
-.gallery a{display:block;overflow:hidden;border:1px solid var(--line);position:relative}
-.gallery a.tall{grid-row:span 2}
-.gallery a.wide{grid-column:span 2;grid-row:span 2}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:grayscale(.25)}
-.gallery a:hover img{transform:scale(1.04);filter:none}
-.gallery a::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px var(--red);opacity:0;transition:opacity .3s}
-.gallery a:hover::after{opacity:1}
+/* lightbox */
 .lightbox{position:fixed;inset:0;z-index:200;background:rgba(10,10,10,.94);display:none;align-items:center;justify-content:center;padding:60px 16px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
@@ -212,7 +204,6 @@ footer img{height:26px;width:auto;opacity:.7}
   .about-grid,.weekend-grid,.content-top{grid-template-columns:1fr;gap:44px}
 }
 @media (max-width:820px){
-  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:8px}
   .nav ul{position:fixed;top:68px;left:0;right:0;flex-direction:column;gap:0;background:rgba(17,17,17,.97);border-bottom:1px solid var(--line);display:none}
   .nav ul.open{display:flex}
   .nav ul a{display:block;padding:16px 20px;border-top:1px solid var(--line)}
@@ -220,9 +211,8 @@ footer img{height:26px;width:auto;opacity:.7}
   .nav .btn{display:none}
   .grid{grid-template-columns:repeat(2,1fr);gap:14px}
   .offer-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .stat b{font-size:30px}
+  .stat small{font-size:10px;letter-spacing:.14em}
   section{padding:80px 0}
 }
 @media (max-width:480px){
@@ -248,7 +238,6 @@ footer img{height:26px;width:auto;opacity:.7}
       <li><a href="#roster">Roster</a></li>
       <li><a href="#contenido">Contenido</a></li>
       <li><a href="#weekend">Weekend</a></li>
-      <li><a href="#galeria">Galería</a></li>
       <li><a href="#colabora">Colabora</a></li>
     </ul>
     <a class="btn" href="#contacto">Hablemos</a>
@@ -269,12 +258,11 @@ footer img{height:26px;width:auto;opacity:.7}
       <div class="stat"><b data-count="12">12</b><small>Creadores</small></div>
       <div class="stat"><b><span>+</span><em id="followersTotal" style="font-style:normal">3M</em></b><small>Seguidores</small></div>
       <div class="stat"><b><span>+</span>750k</b><small>Views en colabs</small></div>
-      <div class="stat"><b>3</b><small>IG · TikTok · YouTube</small></div>
     </div>
   </div>
 </header>
 
-<div class="marquee" aria-label="Marcas y festivales con los que hemos trabajado">
+<div class="marquee" aria-label="Los creadores de Metal CREATORS">
   <div class="marquee-track" id="marquee"></div>
 </div>
 
@@ -345,8 +333,8 @@ footer img{height:26px;width:auto;opacity:.7}
     <div class="quote reveal">
       <div class="mark">“</div>
       <div>
-        <blockquote>No sé quién eres, pero te he visto con la camiseta de CREATORS así que imagino que eres de ellos.</blockquote>
-        <cite>Mensaje real de un seguidor</cite>
+        <blockquote>Pues está toh’ guapo eso que hacéis juntos en Metal Creators.</blockquote>
+        <cite>Cualquier metalhead de bien</cite>
       </div>
     </div>
   </div>
@@ -365,19 +353,6 @@ footer img{height:26px;width:auto;opacity:.7}
         <li><b>Quién</b>11 creadores bajo el mismo techo</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="gallery-sec" id="galeria">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow">Galería</p>
-        <h2>Un fin de semana<br><em>bajo el mismo techo</em></h2>
-      </div>
-      <p class="lead" style="max-width:40ch">Camisetas, disfraces, grabaciones, un parche de batería firmado por todos y muchas horas de sobremesa.</p>
-    </div>
-    <div class="gallery reveal" id="gallery"></div>
   </div>
 </section>
 
@@ -457,10 +432,6 @@ const CONTENT = [
   {t:"Sorteo de merch",        tag:"Feat. Resurrection Fest", brand:1, v:"2,2k", unit:"comentarios", img:"sorteo-merch", url:"", ig:"blanquinni"},
 ];
 
-const PARTNERS = {
-  brands:["Resurrection Fest","Nuclear Blast","Killstar","EMP","KOI Footwear","New Rock","Lively Ghosts"],
-  fests:["Wacken","Hellfest","Rock am Ring","Sick New World","Louder Than Life","Rock Imperium","Leyendas del Rock","BCN Rock Fest","Bogotá Music Market"]
-};
 
 // ===== render =====
 const ICON = {
@@ -506,25 +477,6 @@ document.getElementById('reels').innerHTML = CONTENT.map(c=>{
       <span class="play">${ICON.play}</span></div>
     <h4>${c.t}</h4><span class="tag ${c.brand?'brand':''}">${c.tag}</span>
   </a>`}).join('');
-
-// galería
-const GALLERY = [
-  {f:"g01", c:"wide", alt:"Reparto de camisetas de CREATORS en el billar"},
-  {f:"g03", c:"tall", alt:"Primeros minutos en la casa de Valdaracete"},
-  {f:"g04", alt:"Charla en el sofá con la mascota de la casa"},
-  {f:"g09", alt:"Fiesta de disfraces vista con ojo de pez"},
-  {f:"g05", alt:"Sobremesa en el salón"},
-  {f:"g07", c:"wide", alt:"Parche de batería firmado por todo el roster"},
-  {f:"g08", alt:"Grabando contenido en el patio"},
-  {f:"g06", c:"tall", alt:"Firmando el parche de CREATORS"},
-  {f:"g02", alt:"Todo el grupo alrededor de la mesa de billar"},
-  {f:"g11", alt:"Grabando con el móvil en el salón"},
-  {f:"g10", alt:"Bocetos y dibujos del fin de semana"},
-  {f:"g12", alt:"Foto de grupo en Valdaracete"},
-];
-document.getElementById('gallery').innerHTML = GALLERY.map(g=>
-  `<a href="assets/gallery/${g.f}.jpg" class="${g.c||''}" data-lightbox><img src="assets/gallery/${g.f}.jpg" alt="${g.alt}" loading="lazy"></a>`).join('');
-
 // lightbox
 const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
 let lbList = [], lbIdx = 0;
@@ -538,7 +490,7 @@ function lbClose(){ lb.classList.remove('open'); document.body.style.overflow=''
 lb.addEventListener('click',e=>{ if(e.target.closest('.lb-prev')) lbShow(lbIdx-1); else if(e.target.closest('.lb-next')) lbShow(lbIdx+1); else if(e.target!==lbImg) lbClose(); });
 addEventListener('keydown',e=>{ if(!lb.classList.contains('open')) return; if(e.key==='Escape') lbClose(); if(e.key==='ArrowLeft') lbShow(lbIdx-1); if(e.key==='ArrowRight') lbShow(lbIdx+1); });
 
-const all = [...PARTNERS.brands, ...PARTNERS.fests];
+const all = CREATORS.map(c=>c.h);
 document.getElementById('marquee').innerHTML = [...all, ...all].map(x=>`<span>${x}</span>`).join('');
 
 // nav
