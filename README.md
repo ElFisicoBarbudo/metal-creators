@@ -3,7 +3,19 @@
 Web estática (un solo `index.html`, sin instalar nada) del hub Metal CREATORS, pensada para enviar a marcas.
 Se publica sola con GitHub Pages cada vez que se guarda un cambio en la rama `main`.
 
-## Cómo editar desde el navegador (sin instalar nada)
+## La forma fácil: la hoja de Google Sheets
+
+Los creadores, los reels y los textos principales (cifras, cita, email, enlace al dossier) se leen en vivo de la hoja
+**MCW: Datos de la web** (carpeta METAL CREATORS WEEKEND en Drive). Cambia una celda y la web lo muestra al recargar.
+La hoja tiene que estar compartida como «Cualquier persona con el enlace: lector».
+
+- Pestaña **Creadores**: una fila por creador. Seguidores en miles (`181` = 181k). Para uno nuevo, añade una fila y sube su foto a `assets/creators/` con el nombre de la columna `foto`.
+- Pestaña **Contenido**: una fila por reel. Para uno nuevo, sube la portada vertical a `assets/content/`.
+- Pestaña **Textos**: no cambies la columna `clave`, solo `valor`.
+
+Si la hoja no se puede leer, la web usa los datos guardados en `index.html`.
+
+## Cómo editar el código desde el navegador
 
 1. Abre `index.html` en GitHub y pulsa el lápiz ✏️ (*Edit this file*).
 2. Haz el cambio y pulsa **Commit changes…** → **Commit changes**.
