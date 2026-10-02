@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metal CREATORS · Hub de creadores de metal</title>
-<meta name="description" content="12 creadores de contenido de metal, +3 millones de seguidores en Instagram, TikTok y YouTube. Contenido colaborativo para marcas y festivales de la escena.">
+<meta name="description" content="12 creadores de contenido de metal, +3 millones de seguidores en Instagram, TikTok, YouTube y Twitch. Contenido colaborativo para marcas y festivales de la escena.">
 <meta property="og:title" content="Metal CREATORS">
 <meta property="og:description" content="La escena metal en redes desde 12 perspectivas únicas. +3M seguidores · +750k visualizaciones en contenido conjunto.">
 <meta property="og:image" content="assets/img/grupo-valdaracete.jpg">
@@ -93,7 +93,7 @@ h2 em{font-style:normal;color:var(--red)}
 /* roster */
 .roster{background:var(--bg-2)}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;flex-wrap:wrap}
 .filters button{background:none;border:1px solid var(--line);color:var(--ink-2);font:500 12px var(--display);letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:all .2s}
 .filters button:hover{color:var(--ink);border-color:var(--ink-3)}
 .filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -106,9 +106,10 @@ h2 em{font-style:normal;color:var(--red)}
 .card .rank{position:absolute;left:10px;bottom:10px;background:rgba(17,17,17,.85);font:600 11px var(--display);letter-spacing:.18em;padding:5px 8px;text-transform:uppercase}
 .card h3{font:600 19px/1.15 var(--display);letter-spacing:.03em;text-transform:uppercase;margin:16px 0 6px;word-break:break-word}
 .card .bio{font-size:13.5px;line-height:1.5;color:var(--ink-2);min-height:3em}
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.nums{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
 .num{display:flex;align-items:center;gap:6px;font:600 15px var(--display);letter-spacing:.03em}
 .num svg{width:15px;height:15px;flex:none;fill:var(--ink-3)}
+.num.off{color:var(--ink-3)}
 .anthem{display:flex;gap:8px;align-items:flex-start;margin-top:14px;font-size:12.5px;line-height:1.35;color:var(--ink-3)}
 .anthem svg{width:13px;height:13px;flex:none;fill:var(--red);margin-top:2px}
 .anthem i{color:var(--ink-2);font-style:normal}
@@ -220,6 +221,7 @@ footer img{height:26px;width:auto;opacity:.7}
   .card{padding:10px 10px 14px}
   .card h3{font-size:13px;letter-spacing:0}
   .card .bio{font-size:12.5px}
+  .nums{grid-template-columns:repeat(2,1fr)}
   .num{font-size:13px;gap:4px}
   .num svg{width:12px;height:12px}
   .anthem{display:none}
@@ -231,18 +233,10 @@ footer img{height:26px;width:auto;opacity:.7}
 /* ---- texturas metaleras ---- */
 /* arañazos sobre fondo */
 body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .9' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -6.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='.05'/%3E%3C/svg%3E")}
-/* bordes rasgados entre secciones */
-section:not(.hero)::before{content:"";position:absolute;left:0;right:0;top:-1px;height:26px;pointer-events:none;z-index:2;
-  background:var(--bg);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V8L1170 14 1140 6 1100 18 1060 9 1020 20 980 7 940 15 900 5 860 19 820 10 780 22 740 8 700 16 660 4 620 18 580 11 540 21 500 6 460 17 420 9 380 23 340 7 300 15 260 5 220 19 180 10 140 22 100 8 60 17 20 6 0 12Z'/%3E%3C/svg%3E") 0 0/100% 100%;
-          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1200V8L1170 14 1140 6 1100 18 1060 9 1020 20 980 7 940 15 900 5 860 19 820 10 780 22 740 8 700 16 660 4 620 18 580 11 540 21 500 6 460 17 420 9 380 23 340 7 300 15 260 5 220 19 180 10 140 22 100 8 60 17 20 6 0 12Z'/%3E%3C/svg%3E") 0 0/100% 100%}
-section:nth-of-type(even){background-color:var(--bg-2)}
-section:nth-of-type(odd):not(.hero)::before{background:var(--bg-2)}
-section:nth-of-type(even)::before{background:var(--bg)}
 /* marca de agua MCW */
 #quienes,#colabora{overflow:hidden}
 #quienes::after,#colabora::after{content:"";position:absolute;width:560px;height:560px;right:-140px;top:50%;transform:translateY(-50%) rotate(-8deg);
-  background:url(assets/img/mcw-mark.png) center/contain no-repeat;opacity:.045;filter:grayscale(1) brightness(2);pointer-events:none;z-index:0}
+  background:url(assets/img/mcw-simbolo.png) center/contain no-repeat;opacity:.05;pointer-events:none;z-index:0}
 #colabora::after{left:-160px;right:auto;transform:translateY(-50%) rotate(10deg)}
 #quienes>.wrap,#colabora>.wrap{position:relative;z-index:1}
 /* titulares desgastados */
@@ -250,9 +244,10 @@ h2{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7 5.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E")}
 /* cinta tipo cinta de precaución */
 .marquee{background-image:repeating-linear-gradient(-45deg,rgba(0,0,0,.18) 0 14px,transparent 14px 28px)}
+.photo-band .band-sym{position:absolute;width:clamp(56px,7vw,96px);right:4%;bottom:10%;z-index:2;opacity:.9;filter:drop-shadow(0 4px 20px #000)}
 /* foto en bloque con corte metálico */
 .photo-band{position:relative;height:clamp(260px,42vw,520px);overflow:hidden;padding:0}
-.photo-band img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.2) brightness(.8)}
+.photo-band img:first-child{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.85) contrast(1.2) brightness(.8)}
 .photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bg),transparent 25%,transparent 70%,var(--bg)),radial-gradient(transparent 50%,rgba(0,0,0,.6));mix-blend-mode:normal}
 .photo-band .tag{position:absolute;left:50%;bottom:12%;transform:translateX(-50%) rotate(-2deg);z-index:2;font:700 clamp(28px,6vw,80px)/1 var(--display);text-transform:uppercase;color:var(--red);letter-spacing:.04em;text-shadow:0 4px 30px #000;white-space:nowrap}
 </style>
@@ -325,6 +320,7 @@ h2{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
         <button data-sort="ig">Instagram</button>
         <button data-sort="tt">TikTok</button>
         <button data-sort="yt">YouTube</button>
+        <button data-sort="tw">Twitch</button>
       </div>
     </div>
     <div class="grid" id="grid"></div>
@@ -348,6 +344,11 @@ h2{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
   </div>
 </section>
 
+<section class="photo-band" aria-label="Fiesta de disfraces de Metal CREATORS">
+  <img src="assets/img/fiesta-disfraces.jpg" alt="Los creadores de Metal CREATORS disfrazados en la fiesta del Weekend">
+  <img class="band-sym" src="assets/img/mcw-simbolo.png" alt="">
+  <div class="tag">Juntos sonamos más fuerte</div>
+</section>
 <section class="brands" id="marcas">
   <div class="wrap">
     <div class="reveal">
@@ -467,6 +468,7 @@ const CONTENT = [
 const ICON = {
   ig:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>',
   tt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.1a6.3 6.3 0 1 0 5.4 6.3V8.6a8 8 0 0 0 4.6 1.5V6.7a4.6 4.6 0 0 1-4.6-4.7z"/></svg>',
+  tw:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 1 1 5v15h5v3h3l3-3h4l6-6V1H2.5zM20 13l-3 3h-5l-3 3v-3H5V3h15v10zm-4-7h2v6h-2V6zm-5 0h2v6h-2V6z"/></svg>',
   yt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg>',
   note:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v12.3A3.5 3.5 0 1 0 11 18.5V7h8v6.3a3.5 3.5 0 1 0 2 3.2V3H9z"/></svg>',
   play:'<svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg>'
@@ -475,7 +477,7 @@ const fmt = k => k >= 1000 ? (k/1000).toFixed(k%1000?1:0).replace('.',',')+'M'
   : k >= 1 ? (Math.round(k*10)/10).toString().replace('.',',')+'k' : Math.round(k*1000).toString();
 let sortKey='total';
 function renderAll(){
-  CREATORS.forEach(c => c.total = c.ig + c.tt + c.yt);
+  CREATORS.forEach(c => { c.tw = c.tw||0; c.total = c.ig + c.tt + c.yt + c.tw; });
   const sum = CREATORS.reduce((a,c)=>a+c.total,0);
   document.getElementById('followersTotal').textContent = sum>=1000 ? (Math.floor(sum/100)/10).toString().replace('.',',') + 'M' : Math.round(sum)+'k';
   renderGrid(sortKey);
@@ -495,6 +497,7 @@ function renderGrid(key='total'){
         <span class="num" title="Instagram">${ICON.ig}${fmt(c.ig)}</span>
         <span class="num" title="TikTok">${ICON.tt}${fmt(c.tt)}</span>
         <span class="num" title="YouTube">${ICON.yt}${fmt(c.yt)}</span>
+        <span class="num${c.tw?'':' off'}" title="Twitch">${ICON.tw}${c.tw?fmt(c.tw):'–'}</span>
       </div>
       <p class="anthem">${ICON.note}<span>${c.song} · <i>${c.artist}</i></span></p>
     </a>`).join('');
@@ -544,7 +547,7 @@ function applyTexts(T){
   if(T.dossier_url) document.querySelectorAll('[data-dossier]').forEach(a=>a.href=T.dossier_url);
 }
 Promise.all([tab('Creadores'),tab('Contenido'),tab('Textos')]).then(([cr,ct,tx])=>{
-  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),bio:r[4],song:r[5],artist:r[6],img:r[7]||r[0]}));renderAll();}
+  if(cr.length){CREATORS.length=0;cr.forEach(r=>CREATORS.push({h:r[0].trim().replace(/^@/,''),ig:num(r[1]),tt:num(r[2]),yt:num(r[3]),bio:r[4],song:r[5],artist:r[6],img:r[7]||r[0],tw:num(r[8]||'0')}));renderAll();}
   if(ct.length){CONTENT.length=0;ct.forEach(r=>CONTENT.push({t:r[0],tag:r[1],brand:/^s/i.test(r[2]),v:r[3],unit:r[4],img:r[5],url:r[6]}));renderReels();}
   const T={};tx.forEach(r=>T[r[0].trim()]=r[1]);applyTexts(T);
 }).catch(()=>{});
