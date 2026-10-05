@@ -432,26 +432,10 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 /* ===== ornamentos metaleros (máscaras: el color sale de background) ===== */
 .orn{display:block;pointer-events:none;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
 .o-arch{--m:url(assets/img/orn/orn-arch.webp);aspect-ratio:1400/1060}
-.o-chrome{--m:url(assets/img/orn/orn-chrome-frame.webp);aspect-ratio:1200/691}
-.o-div{--m:url(assets/img/orn/orn-divider.webp);aspect-ratio:1200/395}
-.o-divb{--m:url(assets/img/orn/orn-divider-b.webp);aspect-ratio:1200/395}
 .o-corner{--m:url(assets/img/orn/orn-corner.webp);aspect-ratio:420/432}
 .o-thorns{--m:url(assets/img/orn/orn-thorns.webp);aspect-ratio:900/872}
-/* cabecera: marco de pinchos cromado detrás del logo, se inclina con él */
-.logo3d .o-chrome{position:absolute;left:50%;top:50%;width:128%;transform:translate(-50%,-50%) translateZ(-40px);z-index:-1;color:#d9d9e0;opacity:0;animation:ornIn 2.4s var(--ease) 1.1s forwards;filter:drop-shadow(0 0 18px rgba(250,180,197,.25))}
-@keyframes ornIn{from{opacity:0;transform:translate(-50%,-50%) scale(.92)}to{opacity:.34;transform:translate(-50%,-50%)}}
-/* separadores entre secciones */
-.orn-sep{position:relative;height:0;z-index:2}
-.orn-sep .orn{position:absolute;left:50%;top:0;margin-left:max(-260px,-41vw);margin-top:min(-86px,-13.5vw);width:min(520px,82vw);color:var(--ink-3);opacity:.55;filter:drop-shadow(0 0 14px rgba(250,180,197,.18))}
-.orn-sep.reveal .orn{transform:scaleX(.6);opacity:0;transition:transform 1.4s var(--ease),opacity 1.4s var(--ease)}
-.orn-sep.reveal.in .orn{transform:none;opacity:.55}
 /* vinilo: corona de espinas */
 .vinyl .o-thorns{position:absolute;inset:-13%;color:var(--red);opacity:.38;animation:spin 40s linear infinite reverse}
-/* cita: esquinas */
-.quote{position:relative;padding:34px 40px}
-.quote .o-corner{position:absolute;width:86px;color:var(--red);opacity:.7}
-.quote .o-corner.tl{left:-24px;top:-24px;transform:scaleX(-1)}
-.quote .o-corner.br{right:-24px;bottom:-24px;transform:scaleY(-1)}
 /* foto del Weekend: esquinas de pinchos */
 .photo-frame .o-corner{position:absolute;width:clamp(64px,8vw,104px);color:var(--ink);z-index:2;filter:drop-shadow(0 4px 10px rgba(0,0,0,.8))}
 .photo-frame .o-corner.tr{right:-26px;top:-26px}
@@ -462,11 +446,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 /* CTA: arco alado detrás del titular */
 .cta .o-arch{position:absolute;left:50%;top:-6%;width:min(1100px,118vw);transform:translateX(-50%);color:var(--red);opacity:.16;z-index:-1}
 .cta .wrap{position:relative;z-index:1}
-/* sigilos sueltos de fondo */
-footer{position:relative}
-footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform:translate(-50%,-96%);color:var(--ink-3);opacity:.45}
-@media (max-width:620px){.logo3d .o-chrome{width:116%}.quote{padding:26px 18px}.quote .o-corner{width:60px}.quote .o-corner.tl{left:-10px;top:-14px}.quote .o-corner.br{right:-6px;bottom:-14px}.photo-frame .o-corner.tr{right:-12px;top:-16px}.photo-frame .o-corner.bl{left:-12px;bottom:-16px}.vinyl .o-thorns{display:none}}
-@media (prefers-reduced-motion:reduce){.logo3d .o-chrome{animation:none;opacity:.34}.vinyl .o-thorns{animation:none}.orn-sep.reveal .orn{transform:none;opacity:.55}}
+@media (max-width:620px){.photo-frame .o-corner.tr{right:-12px;top:-16px}.photo-frame .o-corner.bl{left:-12px;bottom:-16px}.vinyl .o-thorns{display:none}}
+@media (prefers-reduced-motion:reduce){.vinyl .o-thorns{animation:none}}
 </style>
 </head>
 <body class="no-js">
@@ -498,7 +479,6 @@ footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform
   <canvas class="embers" id="embers" aria-hidden="true"></canvas>
   <div class="wrap">
     <h1 class="logo3d" data-chrome-logo data-height="assets/img/logo-height.png" role="img" aria-label="Metal CREATORS">
-      <span class="orn o-chrome" aria-hidden="true"></span>
       <span class="flat"></span>
       <canvas></canvas>
     </h1>
@@ -558,7 +538,6 @@ footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform
   </div>
 </section>
 
-<div class="orn-sep reveal" aria-hidden="true"><span class="orn o-div"></span></div>
 <section class="playlist" id="playlist">
   <div class="wrap pl-grid">
     <div>
@@ -613,7 +592,6 @@ footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform
       <div class="bcell spot reveal" data-tilt style="--d:.24s"><b class="chrome" data-k="marca4_cifra" data-plus data-count>+260k</b><h3 data-k="marca4_nombre">Contenido propio</h3><p data-en="Views on the comedy content we make on our own: costume party, “Superstar”, “A metalhead confesses”.">Visualizaciones del contenido de humor que creamos por libre: fiesta de disfraces, «Superestrella», «Metalera se confiesa».</p></div>
     </div>
     <div class="quote reveal">
-      <span class="orn o-corner tl" aria-hidden="true"></span><span class="orn o-corner br" aria-hidden="true"></span>
       <div class="mark">“</div>
       <div>
         <blockquote data-k="cita">Pues está toh’ guapo eso que hacéis juntos en Metal Creators.</blockquote>
@@ -646,7 +624,6 @@ footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform
   <button class="lb-next" aria-label="Siguiente">›</button>
 </div>
 
-<div class="orn-sep reveal" aria-hidden="true"><span class="orn o-div"></span></div>
 <section class="offer" id="colabora">
   <div class="wrap">
     <div>
@@ -679,7 +656,6 @@ footer .orn-top{position:absolute;left:50%;top:0;width:min(420px,70vw);transform
 </section>
 
 <footer>
-  <span class="orn o-divb orn-top" aria-hidden="true"></span>
   <div class="wrap">
     <a href="#top" aria-label="Volver arriba"><img src="assets/img/logo-creators.png" alt="Metal CREATORS"></a>
     <nav aria-label="Pie de página"><a href="#quienes" data-en="About us">Quiénes somos</a><a href="#roster">Roster</a><a href="#contenido" data-en="Content">Contenido</a><a href="#colabora" data-en="Work with us">Colabora</a><a href="#top" data-en="Top ↑">Arriba ↑</a></nav>
