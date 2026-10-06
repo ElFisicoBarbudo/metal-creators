@@ -24,7 +24,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;600;700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/img/logo-height.png" as="image">
 <style>
 :root{
@@ -449,84 +449,41 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 .cta .wrap{position:relative;z-index:1}
 @media (max-width:620px){.photo-frame .o-corner.tr{right:-12px;top:-16px}.photo-frame .o-corner.bl{left:-12px;bottom:-16px}.vinyl .o-thorns{display:none}}
 @media (prefers-reduced-motion:reduce){.vinyl .o-thorns{animation:none}}
-</style>
-<style>
-/* ===== v2: cartel de concierto / mesa de merch ===== */
-:root{--bg:#000;--bg-2:#070606;--panel:#0b0a0a;--ink:#ebe4d8;--ink-2:#b5ada2;--ink-3:#7f786f;--line:rgba(235,228,216,.12);--line-2:rgba(235,228,216,.28);
-  --goth:"Grenze Gotisch",Georgia,serif;--display:"Archivo",system-ui,sans-serif;--body:"Archivo",system-ui,sans-serif;--serif:var(--goth)}
-body{font:400 17px/1.6 var(--body)}
-/* fuera mayúsculas forzadas y tracking de plantilla */
-.nav ul a,.btn,.eyebrow,.filters button,.stat small,.big-num small,.facts li,.facts li b,.quote cite,footer nav a,.lang button,.menu-toggle,.mail,.card .rank,.card h3,.ocard h3,.bcell h3,.pillar b,.reel h3,.reel p,.reel small,.photo-band .pb-tag,.band span,.total,.num{text-transform:none!important;letter-spacing:0!important}
-/* titulares en gótica, en minúscula, sin acento de color en una palabra */
-h2{font:700 clamp(54px,7.4vw,112px)/.86 var(--goth);text-transform:none;letter-spacing:-.005em}
-h2 em,h2 em .wi{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important}
-.cta h2{font-size:clamp(64px,11vw,170px)}
-.playlist h2{font-size:clamp(50px,6.2vw,96px)}
-.eyebrow{display:none}
-/* subtítulo de la cabecera */
-.serif,.hero .serif{font:500 clamp(26px,2.8vw,36px)/1.1 var(--goth);font-style:normal;color:var(--ink-2)}
-.serif b{color:var(--ink);font-weight:700}
-/* botones: rectángulo plano, en frase normal, sin flecha */
-.btn{font:600 16px var(--body);padding:15px 26px;clip-path:none;border-radius:0}
-.btn .arr{display:none}
-.nav .btn{font-size:14px;padding:10px 18px}
-.nav ul a{font:500 15px var(--body);color:var(--ink-2)}
-.lang button{font:600 13px/1 var(--body)}
-/* cifras: grotesca ancha, como estampado de camiseta */
-.stat b,.big-num,.bcell b{font-family:var(--body);font-stretch:125%;font-weight:800;letter-spacing:-.02em}
-.stat small,.big-num small{font:500 15px var(--body);color:var(--ink-3)}
-.stats{border-top:0}
-/* quiénes somos: sin cajas ni números */
-.pillar{background:none;border:0;border-top:1px solid var(--line);padding:22px 0 0}
-.pillar i{display:none}
-.pillar b{font:700 30px/1 var(--goth);margin:0 0 10px}
-.pillar p{font-size:15px}
-.pillars{gap:30px 34px}
-/* roster: ficha de catálogo, sin caja */
-.card{background:none;border:0;padding:0}
-.card:hover{box-shadow:none}
-.card .ph{clip-path:none}
-.card h3{font:700 28px/1 var(--goth);margin:14px 0 6px}
-.card .bio{font-size:14.5px}
-.num{font:600 15px var(--body)}
-.card .rank{font:700 13px var(--body)}
-.filters{border:0;background:none;gap:18px;padding:0}
-.filters button{font:500 16px var(--body);padding:6px 0;color:var(--ink-3);background:none}
-.filters button.on{color:var(--ink)}
-.filters .ind{background:none!important;border-bottom:2px solid var(--red);height:2px!important;top:auto!important;bottom:0}
-/* marcas */
-.bcell{background:none;border:0;border-top:1px solid var(--line);padding:24px 0 0}
-.bcell h3{font:700 30px/1 var(--goth);color:var(--ink);margin:14px 0 8px}
-.brand-grid{gap:34px}
-.quote blockquote{font:600 clamp(34px,4vw,56px)/1.05 var(--goth);font-style:normal}
-.quote .mark{font-family:var(--goth)}
-.quote cite{font:500 15px var(--body);color:var(--ink-3)}
-/* weekend */
-.facts li{font:500 18px var(--body)}
-.facts li b{font:600 15px var(--body);color:var(--ink-3)}
-/* oferta: sin números (no es una secuencia) */
-.ocard .n{display:none}
-.ocard{background:#0b0a0a}
-.ocard h3{font:700 32px/1 var(--goth);margin:6px 0 14px}
-.ocard p{font-size:16px}
-/* contenido y reels */
-.reel h3{font:700 24px/1 var(--goth)}
-.photo-band .pb-tag{font:700 clamp(54px,9vw,150px)/.9 var(--goth);transform:rotate(-2deg)}
-.photo-band .pb-tag em{color:var(--ink)}
-/* cintas: handles tal cual, en gótica */
-.band span{font-family:var(--goth)!important;font-weight:700}
-/* pie y correo */
-.mail{font:500 17px var(--body)}
-footer nav a{font:500 14px var(--body)}
-/* movimiento: solo lo que importa */
-.lead.reveal,.facts.reveal,.quote.reveal,.weekend-logo.reveal,.mail.reveal,.hero-ctas.reveal,.total.reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
-@media (max-width:820px){.card h3{font-size:22px}.pillar b{font-size:26px}.ocard h3{font-size:28px}.bcell h3{font-size:26px}}
-.reel h4{font:700 26px/1 var(--goth);text-transform:none;letter-spacing:0}
-.reel .idx{display:none}
-.reel .views{font-family:var(--body);font-stretch:125%;font-weight:800}
-.reel .views small{font:500 13px var(--body);letter-spacing:0;text-transform:none}
-.tag{font:500 14px var(--body);letter-spacing:0;text-transform:none}
-.reel h4{margin-top:12px}
+
+/* ===== artefactos metal: cartel de festival y entrada ===== */
+.lineup{position:relative;margin:0 auto 110px;max-width:1060px;padding:clamp(34px,5vw,64px) clamp(18px,4vw,60px);text-align:center;background:#0b0b0c;border:1px solid var(--line-2);outline:1px solid var(--line);outline-offset:-12px;overflow:hidden}
+.lineup::before{content:"";position:absolute;inset:0;background:url(assets/img/tex-papel.jpg) center/cover;opacity:.07;mix-blend-mode:screen;pointer-events:none}
+.lineup::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.65));pointer-events:none}
+.lineup>*{position:relative;z-index:1}
+.lu-sym{width:58px;margin:0 auto 14px;opacity:.9}
+.lu-top{font:500 12px var(--display);letter-spacing:.34em;text-transform:uppercase;color:var(--ink-3);margin-bottom:26px}
+.lu-r{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.1em .5em;font:700 1em/1.05 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:0 0 .35em}
+.lu-r a{text-decoration:none;color:inherit;transition:color .3s,text-shadow .3s}
+.lu-r a:hover{color:#fff;text-shadow:0 0 24px rgba(250,180,197,.7)}
+.lu-r i{font-style:normal;font-size:.42em;color:var(--red);opacity:.8}
+.lu-r.r0{font-size:clamp(34px,6.6vw,92px);line-height:.98;margin:0;color:var(--ink)}
+.lu-r.r0+.lu-r.r1{margin-top:.5em}
+.lu-r.r1{font-size:clamp(22px,3.5vw,48px);color:var(--red)}
+.lu-r.r2{font-size:clamp(17px,2.3vw,31px);color:var(--ink-2)}
+.lu-foot{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font:500 12px var(--display);letter-spacing:.28em;text-transform:uppercase;color:var(--ink-3)}
+.lu-foot b{color:var(--ink);letter-spacing:.12em}
+.lineup.reveal .lu-r{opacity:0;transform:translateY(18px) scale(.98);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.lineup.reveal.in .lu-r{opacity:1;transform:none}
+.lineup.reveal.in .lu-r.r1{transition-delay:.18s}.lineup.reveal.in .lu-r.r2{transition-delay:.36s}
+/* entrada del Weekend */
+.ticket{display:grid;grid-template-columns:1fr 92px;margin-top:30px;background:#0e0e10;border:1px solid var(--line-2);position:relative;--notch:13px}
+.ticket .tk-main{padding:20px 24px 8px}
+.ticket .tk-top{display:flex;justify-content:space-between;gap:12px;font:600 12px var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--red);padding-bottom:12px;border-bottom:1px dashed var(--line-2)}
+.ticket .tk-top span:last-child{color:var(--ink-3)}
+.ticket .facts{margin-top:0;border-top:0}
+.ticket .facts li:last-child{border-bottom:0}
+.ticket .tk-stub{position:relative;background:var(--red);color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-left:2px dashed #0e0e10}
+.ticket .tk-stub span{writing-mode:vertical-rl;transform:rotate(180deg);font:700 13px var(--display);letter-spacing:.3em;text-transform:uppercase}
+.ticket .tk-stub b{font:700 22px/1 var(--display)}
+.ticket::before,.ticket::after{content:"";position:absolute;right:calc(92px - var(--notch));width:calc(var(--notch)*2);height:var(--notch);background:var(--bg);border:1px solid var(--line-2);z-index:2}
+.ticket::before{top:-1px;border-top:0;border-radius:0 0 var(--notch) var(--notch)}
+.ticket::after{bottom:-1px;border-bottom:0;border-radius:var(--notch) var(--notch) 0 0}
+@media (max-width:620px){.ticket{grid-template-columns:1fr 64px}.ticket::before,.ticket::after{right:calc(64px - var(--notch))}.ticket .tk-main{padding:16px 16px 4px}.ticket .tk-top{flex-direction:column;gap:4px;font-size:11px}.lineup{margin-bottom:70px;outline-offset:-8px}.lu-r.r0{font-size:9.2vw}.lu-r.r1{font-size:4.5vw}.lu-r.r2{font-size:3.7vw}.lu-top{letter-spacing:.2em}}
 </style>
 </head>
 <body class="no-js">
@@ -599,6 +556,12 @@ footer nav a{font:500 14px var(--body)}
 
 <section class="roster" id="roster">
   <div class="wrap">
+    <div class="lineup reveal" id="lineup" aria-label="Cartel del roster">
+      <img class="lu-sym" src="assets/img/mcw-simbolo.png" alt="">
+      <p class="lu-top" data-en="The roster, billed by followers">El cartel, por orden de seguidores</p>
+      <div class="lu-rows"></div>
+      <p class="lu-foot"><span data-en="Instagram, TikTok, YouTube and Twitch">Instagram, TikTok, YouTube y Twitch</span><b class="lu-total">+3M</b></p>
+    </div>
     <div class="section-head">
       <div>
         <p class="eyebrow reveal" data-en-html="&lt;b&gt;02&lt;/b&gt;The roster"><b>02</b>El roster</p>
@@ -687,11 +650,17 @@ footer nav a{font:500 14px var(--body)}
       <p class="eyebrow reveal" data-en-html="&lt;b&gt;06&lt;/b&gt;Where it all began"><b>06</b>Donde empezó todo</p>
       <img class="weekend-logo reveal" style="--d:.05s" src="assets/img/logo-weekend.png" alt="Metal Creators Weekend">
       <p class="lead reveal" style="--d:.1s" data-en="The first gathering of metal content creators from Spain and the Spanish-speaking world: a weekend of workshops, content creation, community and music to connect the voices of the scene, level up our content and open the door to new collaborations.">El primer encuentro de creadores de metal de España y la comunidad hispanohablante: un fin de semana de talleres, creación de contenido, comunidad y música para conectar las voces de la escena, profesionalizar contenidos y abrir nuevas colaboraciones.</p>
-      <ul class="facts reveal" style="--d:.15s">
+      <div class="ticket reveal" style="--d:.15s">
+        <div class="tk-main">
+          <p class="tk-top"><span data-en="Weekend pass">Pase de fin de semana</span><span data-en="Edition I">Edición I</span></p>
+          <ul class="facts">
         <li data-en-html="&lt;b&gt;When&lt;/b&gt;March 20–22, 2026"><b>Cuándo</b>20 al 22 de marzo de 2026</li>
         <li data-en-html="&lt;b&gt;Where&lt;/b&gt;Valdaracete, Madrid region"><b>Dónde</b>Valdaracete, Comunidad de Madrid</li>
         <li data-en-html="&lt;b&gt;Who&lt;/b&gt;11 creators under one roof"><b>Quién</b>11 creadores bajo el mismo techo</li>
       </ul>
+        </div>
+        <div class="tk-stub" aria-hidden="true"><span>Admit one</span><b>11</b></div>
+      </div>
     </div>
   </div>
 </section>
@@ -738,7 +707,7 @@ footer nav a{font:500 14px var(--body)}
   <div class="wrap">
     <a href="#top" aria-label="Volver arriba"><img src="assets/img/logo-creators.png" alt="Metal CREATORS"></a>
     <nav aria-label="Pie de página"><a href="#quienes" data-en="About us">Quiénes somos</a><a href="#roster">Roster</a><a href="#contenido" data-en="Content">Contenido</a><a href="#colabora" data-en="Work with us">Colabora</a><a href="#top" data-en="Top ↑">Arriba ↑</a></nav>
-    <span data-en="© 2026 Metal CREATORS. Made with distortion in Spain">© 2026 Metal CREATORS. Hecho con distorsión en España</span>
+    <span data-en="© 2026 Metal CREATORS · Made with distortion in Spain">© 2026 Metal CREATORS · Hecho con distorsión en España</span>
   </div>
 </footer>
 
@@ -829,11 +798,17 @@ let sortKey='rnd';
 const RND={}; const rnd=c=>RND[c.h]??(RND[c.h]=Math.random());
 const sorter=k=>k==='rnd'?(a,b)=>rnd(a)-rnd(b):(a,b)=>b[k]-a[k];
 function setFinal(el,v){ el.dataset.final=v; if(!el._counting) el.textContent=v; }
+
+function buildLineup(){ const el=document.getElementById('lineup'); if(!el) return;
+  const s=[...CREATORS].sort((a,b)=>b.total-a.total), rows=[[s[0]],[s[1]],[s[2]],s.slice(3,5),s.slice(5,7),s.slice(7,10),s.slice(10)], cls=[0,0,0,1,1,2,2];
+  el.querySelector('.lu-rows').innerHTML=rows.map((r,i)=>`<p class="lu-r r${cls[i]}">${r.map(c=>`<a href="https://www.instagram.com/${c.h}/" target="_blank" rel="noopener">${c.h}</a>`).join('<i aria-hidden="true">✦</i>')}</p>`).join('');
+  el.querySelector('.lu-total').textContent='+'+(document.getElementById('followersTotal').dataset.final||'');
+}
 function renderAll(){
   CREATORS.forEach(c => { c.tw = c.tw||0; c.total = c.ig + c.tt + c.yt + c.tw; });
   const sum = CREATORS.reduce((a,c)=>a+c.total,0);
   setFinal(document.getElementById('followersTotal'), sum>=1000 ? (Math.floor(sum/100)/10).toString().replace('.',DEC()) + 'M' : Math.round(sum)+'k');
-  buildGrid();
+  buildGrid(); buildLineup();
   const all = CREATORS.map(c=>c.h);
   fillBand('marquee', all);
   fillBand('bandB', L(['Metal','Ciencia','Moda','Maquillaje','Batería','Ilustración','Humor','Música','Tatuaje','Festivales'],['Metal','Science','Fashion','Makeup','Drums','Illustration','Comedy','Music','Tattoo','Festivals']));
