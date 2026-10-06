@@ -448,7 +448,67 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 .cta .wrap{position:relative;z-index:1}
 @media (max-width:620px){.photo-frame .o-corner.tr{right:-12px;top:-16px}.photo-frame .o-corner.bl{left:-12px;bottom:-16px}.vinyl .o-thorns{display:none}}
 @media (prefers-reduced-motion:reduce){.vinyl .o-thorns{animation:none}}
+
+/* ===== revisión 6 oct: metal moderno ===== */
+:root{--ink-3:#8f8a83}
+.eyebrow b{letter-spacing:.14em}
+/* títulos a dos escalas */
+h2.h-xl{font-size:clamp(54px,10.4vw,156px);line-height:.86}
+.brands h2.h-xl{font-size:clamp(46px,7.3vw,108px)}
+/* cabecera: semitono rosa y polvo en lugar de chispas */
+.hero-bg .ht{position:absolute;inset:-4%;background:var(--red);opacity:.2;-webkit-mask:url(assets/img/hero-semitono.png) center 30%/cover no-repeat;mask:url(assets/img/hero-semitono.png) center 30%/cover no-repeat;animation:kenburns 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 14 -11.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.002 .6' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 12 -10.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E")}
+/* roster: B/N contrastado con grano; color al pasar */
+.card .ph img{filter:grayscale(1) contrast(1.35) brightness(.88)}
+.card .ph::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;mix-blend-mode:overlay;transition:opacity .6s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+.card:hover .ph img,.card:focus-visible .ph img{filter:none}
+.card:hover .ph::before,.card:focus-visible .ph::before{opacity:0}
+.card .ph .rank{z-index:2}
+.nums{grid-template-columns:repeat(auto-fit,minmax(0,max-content));justify-content:start;column-gap:22px}
+/* logos de marcas */
+.blogo{display:block;height:64px;width:100%;max-width:150px;object-fit:contain;object-position:left center;margin-bottom:24px;opacity:.92;transition:opacity .4s,transform .6s var(--ease)}
+.blogo-nuclear-blast{max-width:170px}
+.blogo-killstar{max-width:150px}
+.blogo-mcw{max-width:70px;opacity:.85}
+.bcell:hover .blogo{opacity:1;transform:translateY(-2px)}
+/* breakdown: el titular de la franja entra de golpe */
+.photo-band .pb-tag.reveal{transition:none;filter:none;transform:rotate(-2deg) scale(1.5);opacity:0}
+.photo-band .pb-tag.reveal.in{opacity:1;transform:rotate(-2deg);animation:slam .7s cubic-bezier(.2,.9,.25,1) both}
+@keyframes slam{0%{opacity:0;transform:rotate(-2deg) scale(1.55);filter:blur(10px)}
+  38%{opacity:1;transform:rotate(-2deg) scale(.97);filter:none}
+  48%{transform:rotate(-2.8deg) translate(-7px,4px) scale(1.01)}
+  58%{transform:rotate(-1.3deg) translate(6px,-3px)}
+  68%{transform:rotate(-2.4deg) translate(-3px,2px)}
+  80%{transform:rotate(-1.8deg) translate(2px,-1px)}
+  100%{opacity:1;transform:rotate(-2deg)}}
+.photo-band:has(.pb-tag.in) .pb-img img{animation:quake .5s .25s cubic-bezier(.3,.7,.4,1) both}
+@keyframes quake{0%{transform:none}20%{transform:translate(-10px,6px) scale(1.02)}40%{transform:translate(8px,-5px) scale(1.02)}60%{transform:translate(-5px,3px) scale(1.01)}80%{transform:translate(3px,-2px)}100%{transform:none}}
+/* ajustes menores */
+.band.b span{-webkit-text-stroke:1.2px rgba(241,238,233,.72)}
+.reels{-webkit-mask:linear-gradient(90deg,#000 84%,transparent);mask:linear-gradient(90deg,#000 84%,transparent)}
+.roster{padding-top:90px}
+.tag,.reel .views small,.total{color:#9a958e}
+footer img{height:46px;opacity:.9}
+@media (max-width:480px){
+  .hero-ctas .hero-dossier{width:auto;padding:8px 4px;border:0;background:none;backdrop-filter:none;clip-path:none;font-size:12.5px;color:var(--ink-2);text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--red)}
+  .hero-ctas .hero-dossier::after{display:none}
+  .blogo{height:56px}
+  .brands h2.h-xl{font-size:40px}
+  .nums{grid-template-columns:repeat(2,max-content);column-gap:16px}
+}
+@media (prefers-reduced-motion:reduce){.photo-band .pb-tag.reveal{opacity:1;transform:rotate(-2deg)}}
+/* prueba de tipografía ancha (?tipo=ancha) */
+html.t-ancha h2,html.t-ancha .photo-band .pb-tag{font-family:"Archivo",var(--display);font-weight:800;font-stretch:125%;letter-spacing:-.01em;line-height:.9}
+html.t-ancha h2{font-size:clamp(34px,4.9vw,68px)}
+html.t-ancha h2.h-xl{font-size:clamp(40px,7.6vw,116px)}
+html.t-ancha .cta h2{font-size:clamp(40px,7.4vw,112px)}
+html.t-ancha .playlist h2{font-size:clamp(32px,4.1vw,60px)}
+html.t-ancha .photo-band .pb-tag{font-size:clamp(26px,4.8vw,78px)}
 </style>
+<script>if(/[?&]tipo=ancha/.test(location.search)){document.documentElement.classList.add('t-ancha');var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&display=swap';document.head.appendChild(l);}</script>
 </head>
 <body class="no-js">
 <div class="progress" id="progress"></div>
@@ -474,9 +534,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-bg"><img src="assets/img/grupo-valdaracete.jpg" alt=""></div>
+  <div class="hero-bg"><span class="ht"></span></div>
   <svg class="sigil" viewBox="-510 -510 1020 1020" aria-hidden="true"><g class="sg-spin"><circle r="440" pathLength="1" class="sg-d"/><circle r="418" class="sg-dash"/><circle r="300" pathLength="1" class="sg-d" style="--o:.4"/><path class="sg-t" d="M0.0 -440.0L0.0 -470.0M38.3 -438.3L39.4 -450.3M76.4 -433.3L78.5 -445.1M113.9 -425.0L117.0 -436.6M150.5 -413.5L154.6 -424.7M186.0 -398.8L191.0 -409.7M220.0 -381.1L235.0 -407.0M252.4 -360.4L259.3 -370.3M282.8 -337.1L290.5 -346.3M311.1 -311.1L319.6 -319.6M337.1 -282.8L346.3 -290.5M360.4 -252.4L370.3 -259.3M381.1 -220.0L407.0 -235.0M398.8 -186.0L409.7 -191.0M413.5 -150.5L424.7 -154.6M425.0 -113.9L436.6 -117.0M433.3 -76.4L445.1 -78.5M438.3 -38.3L450.3 -39.4M440.0 0.0L470.0 0.0M438.3 38.3L450.3 39.4M433.3 76.4L445.1 78.5M425.0 113.9L436.6 117.0M413.5 150.5L424.7 154.6M398.8 186.0L409.7 191.0M381.1 220.0L407.0 235.0M360.4 252.4L370.3 259.3M337.1 282.8L346.3 290.5M311.1 311.1L319.6 319.6M282.8 337.1L290.5 346.3M252.4 360.4L259.3 370.3M220.0 381.1L235.0 407.0M186.0 398.8L191.0 409.7M150.5 413.5L154.6 424.7M113.9 425.0L117.0 436.6M76.4 433.3L78.5 445.1M38.3 438.3L39.4 450.3M0.0 440.0L0.0 470.0M-38.3 438.3L-39.4 450.3M-76.4 433.3L-78.5 445.1M-113.9 425.0L-117.0 436.6M-150.5 413.5L-154.6 424.7M-186.0 398.8L-191.0 409.7M-220.0 381.1L-235.0 407.0M-252.4 360.4L-259.3 370.3M-282.8 337.1L-290.5 346.3M-311.1 311.1L-319.6 319.6M-337.1 282.8L-346.3 290.5M-360.4 252.4L-370.3 259.3M-381.1 220.0L-407.0 235.0M-398.8 186.0L-409.7 191.0M-413.5 150.5L-424.7 154.6M-425.0 113.9L-436.6 117.0M-433.3 76.4L-445.1 78.5M-438.3 38.3L-450.3 39.4M-440.0 0.0L-470.0 0.0M-438.3 -38.3L-450.3 -39.4M-433.3 -76.4L-445.1 -78.5M-425.0 -113.9L-436.6 -117.0M-413.5 -150.5L-424.7 -154.6M-398.8 -186.0L-409.7 -191.0M-381.1 -220.0L-407.0 -235.0M-360.4 -252.4L-370.3 -259.3M-337.1 -282.8L-346.3 -290.5M-311.1 -311.1L-319.6 -319.6M-282.8 -337.1L-290.5 -346.3M-252.4 -360.4L-259.3 -370.3M-220.0 -381.1L-235.0 -407.0M-186.0 -398.8L-191.0 -409.7M-150.5 -413.5L-154.6 -424.7M-113.9 -425.0L-117.0 -436.6M-76.4 -433.3L-78.5 -445.1M-38.3 -438.3L-39.4 -450.3"/><path class="sg-sp" d="M103.5 -427.7L128.9 -481.0L124.2 -422.1M303.4 -318.6L340.8 -340.8L318.6 -303.4M422.1 -124.2L465.6 -124.8L427.7 -103.5M427.7 103.5L481.0 128.9L422.1 124.2M318.6 303.4L340.8 340.8L303.4 318.6M124.2 422.1L124.8 465.6L103.5 427.7M-103.5 427.7L-128.9 481.0L-124.2 422.1M-303.4 318.6L-340.8 340.8L-318.6 303.4M-422.1 124.2L-465.6 124.8L-427.7 103.5M-427.7 -103.5L-481.0 -128.9L-422.1 -124.2M-318.6 -303.4L-340.8 -340.8L-303.4 -318.6M-124.2 -422.1L-124.8 -465.6L-103.5 -427.7"/></g><g class="sg-spin2"><path class="sg-d" pathLength="1" d="M0.0 -418.0L295.6 295.6L-418.0 0.0L295.6 -295.6L0.0 418.0L-295.6 -295.6L418.0 0.0L-295.6 295.6Z"/><path class="sg-d" pathLength="1" style="--o:.6" d="M114.8 -277.2L114.8 277.2L-277.2 -114.8L277.2 -114.8L-114.8 277.2L-114.8 -277.2L277.2 114.8L-277.2 114.8Z"/><circle class="sg-dot" cx="0.0" cy="-418.0" r="4"/><circle class="sg-dot" cx="295.6" cy="-295.6" r="4"/><circle class="sg-dot" cx="418.0" cy="0.0" r="4"/><circle class="sg-dot" cx="295.6" cy="295.6" r="4"/><circle class="sg-dot" cx="0.0" cy="418.0" r="4"/><circle class="sg-dot" cx="-295.6" cy="295.6" r="4"/><circle class="sg-dot" cx="-418.0" cy="0.0" r="4"/><circle class="sg-dot" cx="-295.6" cy="-295.6" r="4"/></g><path class="sg-d" pathLength="1" style="--o:.2" d="M0 -500V500M-26 -470H26M-26 470H26M-60 -380H60"/></svg>
-  <canvas class="embers" id="embers" aria-hidden="true"></canvas>
   <div class="wrap">
     <h1 class="logo3d" data-chrome-logo data-height="assets/img/logo-height.png" role="img" aria-label="Metal CREATORS">
       <span class="flat"></span>
@@ -486,7 +545,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
     <div class="hero-ctas">
       <a class="btn" href="#roster" data-magnetic data-en-html="Meet the roster &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Conoce al roster <span class="arr">→</span></a>
       <a class="btn ghost" href="#contacto" data-magnetic data-en="Work with us">Colabora con nosotros</a>
-      <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener" data-en="Dossier">Dossier (EN)</a>
+      <a class="btn ghost hero-dossier" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener" data-en="Dossier">Dossier (EN)</a>
     </div>
     <div class="stats">
       <div class="stat"><b class="chrome" data-count>12</b><small data-en="Creators">Creadores</small></div>
@@ -504,8 +563,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="about" id="quienes">
   <div class="wrap about-grid">
     <div>
-      <p class="eyebrow reveal" data-en-html="&lt;b&gt;01&lt;/b&gt;About us"><b>01</b>Quiénes somos</p>
-      <h2 data-en-html="The metal scene online from &lt;em&gt;12 perspectives&lt;/em&gt;">La escena metal en redes desde <em>12 perspectivas</em></h2>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;I&lt;/b&gt;About us"><b>I</b>Quiénes somos</p>
+      <h2 data-en-html="The &lt;em&gt;metal&lt;/em&gt; scene online from 12 perspectives">La escena <em>metal</em> en redes desde 12 perspectivas</h2>
       <p class="lead reveal" style="margin-top:30px" data-en="We are 12 content creators living our passion for metal from very different angles: science communication, music history, fashion, makeup, photography, drums, illustration, entertainment…">Somos 12 creadores y creadoras de contenido que vivimos nuestra pasión por el metal desde ángulos muy distintos: divulgación científica, historia de la música, moda, maquillaje, fotografía, batería, ilustración, entretenimiento…</p>
       <p class="lead reveal" style="--d:.1s" data-en="We’ve worked with brands like Killstar, EMP, KOI Footwear, New Rock and Lively Ghosts, covered festivals like Resurrection Fest, Wacken, Hellfest and Rock am Ring, and each of us has built a loyal, engaged community. Together, we have more than 3 million followers.">Hemos colaborado con marcas como Killstar, EMP, KOI Footwear, New Rock o Lively Ghosts, hemos cubierto festivales como Resurrection Fest, Wacken, Hellfest o Rock am Ring, y cada uno ha construido una comunidad fiel y activa. Juntos, sumamos más de 3 millones de seguidores.</p>
     </div>
@@ -522,8 +581,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap">
     <div class="section-head">
       <div>
-        <p class="eyebrow reveal" data-en-html="&lt;b&gt;02&lt;/b&gt;The roster"><b>02</b>El roster</p>
-        <h2 data-en-html="Twelve voices,&lt;br&gt;&lt;em&gt;one riff&lt;/em&gt;">Doce voces,<br><em>un mismo riff</em></h2>
+        <p class="eyebrow reveal" data-en-html="&lt;b&gt;II&lt;/b&gt;The roster"><b>II</b>El roster</p>
+        <h2 class="h-xl" data-en-html="Twelve voices,&lt;br&gt;one &lt;em&gt;riff&lt;/em&gt;">Doce voces,<br>un mismo <em>riff</em></h2>
       </div>
       <div class="filters reveal" role="group" aria-label="Ordenar roster por plataforma">
         <span class="ind" aria-hidden="true"></span>
@@ -541,8 +600,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="playlist" id="playlist">
   <div class="wrap pl-grid">
     <div>
-      <p class="eyebrow reveal" data-en-html="&lt;b&gt;03&lt;/b&gt;Soundtrack"><b>03</b>Banda sonora</p>
-      <h2 data-en-html="Twelve tastes,&lt;br&gt;&lt;em&gt;one playlist&lt;/em&gt;">Doce gustos,<br><em>una playlist</em></h2>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;III&lt;/b&gt;Soundtrack"><b>III</b>Banda sonora</p>
+      <h2 data-en-html="Twelve tastes,&lt;br&gt;one &lt;em&gt;playlist&lt;/em&gt;">Doce gustos,<br>una <em>playlist</em></h2>
       <p class="lead reveal" style="margin-top:26px" data-en="The Metal CREATORS shared playlist: what plays when we get together. Hit play while you look around.">La playlist conjunta de Metal CREATORS: lo que suena cuando nos juntamos. Dale al play mientras echas un ojo al resto de la web.</p>
       <div class="reveal" style="--d:.1s"><a class="btn ghost pl-open" data-spotify-link data-magnetic href="https://open.spotify.com/playlist/443gREqbSbWIAmIWvtgx9v" target="_blank" rel="noopener" data-en-html="Open in Spotify &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Abrir en Spotify <span class="arr">→</span></a></div>
     </div>
@@ -557,8 +616,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap">
     <div class="content-top">
       <div>
-        <p class="eyebrow reveal" data-en-html="&lt;b&gt;04&lt;/b&gt;Joint content"><b>04</b>Contenido conjunto</p>
-        <h2 data-en-html="What happens when&lt;br&gt;you get &lt;em&gt;12 creators&lt;/em&gt; together">Lo que pasa cuando<br>juntas a <em>12 creadores</em></h2>
+        <p class="eyebrow reveal" data-en-html="&lt;b&gt;IV&lt;/b&gt;Joint content"><b>IV</b>Contenido conjunto</p>
+        <h2 data-en-html="What happens when&lt;br&gt;you get 12 creators &lt;em&gt;together&lt;/em&gt;">Lo que pasa cuando<br><em>juntas</em> a 12 creadores</h2>
         <p class="lead reveal" style="margin-top:26px" data-en="Since the Metal Creators Weekend we’ve published 10 collaborative pieces across reels and posts. The reels alone have passed 750,000 views on Instagram, not counting stories, posts or other platforms.">Desde el Metal Creators Weekend publicamos 10 piezas colaborativas entre reels y posts. Solo los reels superan las 750.000 visualizaciones en Instagram, sin contar stories, posts ni el resto de plataformas.</p>
       </div>
       <div class="reveal">
@@ -582,14 +641,14 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="brands" id="marcas">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal" data-en-html="&lt;b&gt;05&lt;/b&gt;Brand partnerships"><b>05</b>Acciones con marcas</p>
-      <h2 data-en-html="Brands that have already&lt;br&gt;&lt;em&gt;entered the pit&lt;/em&gt;">Marcas que ya han<br><em>entrado al pit</em></h2>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;V&lt;/b&gt;Brand partnerships"><b>V</b>Acciones con marcas</p>
+      <h2 class="h-xl" data-en-html="Brands that have&lt;br&gt;already entered the &lt;em&gt;pit&lt;/em&gt;">Marcas que ya han<br>entrado al <em>pit</em></h2>
     </div>
     <div class="brand-grid">
-      <div class="bcell spot reveal" data-tilt><b class="chrome" data-k="marca1_cifra" data-plus data-count>+300k</b><h3 data-k="marca1_nombre">Resurrection Fest</h3><p data-en="Impressions on collaborative posts: “Spot the impostor” I and II, “Guess the cover” and a merch giveaway with over 2,200 comments.">Impresiones en posts colaborativos: «Descubre al impostor» I y II, «Adivina la portada» y un sorteo de merch con más de 2.200 comentarios.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.08s"><b class="chrome" data-k="marca2_cifra" data-plus data-count>+80k</b><h3 data-k="marca2_nombre">Nuclear Blast</h3><p data-en="Impressions on “This or that: Metal Edition”, choosing between the label’s bands.">Impresiones del «This or that: Metal Edition», eligiendo entre bandas del sello.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.16s"><b class="chrome" data-k="marca3_cifra" data-plus data-count>+56k</b><h3 data-k="marca3_nombre">Killstar</h3><p data-en="Impressions on “Metal Moves”, our mosh-move contest wearing the brand’s clothes.">Impresiones de «Metal Moves», nuestra competición de pasos de mosh con prendas de la marca.</p></div>
-      <div class="bcell spot reveal" data-tilt style="--d:.24s"><b class="chrome" data-k="marca4_cifra" data-plus data-count>+260k</b><h3 data-k="marca4_nombre">Contenido propio</h3><p data-en="Views on the comedy content we make on our own: costume party, “Superstar”, “A metalhead confesses”.">Visualizaciones del contenido de humor que creamos por libre: fiesta de disfraces, «Superestrella», «Metalera se confiesa».</p></div>
+      <div class="bcell spot reveal" data-tilt><img class="blogo blogo-resurrection-fest" src="assets/img/marcas/resurrection-fest.svg" alt="Resurrection Fest" loading="lazy"><b class="chrome" data-k="marca1_cifra" data-plus data-count>+300k</b><h3 data-k="marca1_nombre">Resurrection Fest</h3><p data-en="Impressions on collaborative posts: “Spot the impostor” I and II, “Guess the cover” and a merch giveaway with over 2,200 comments.">Impresiones en posts colaborativos: «Descubre al impostor» I y II, «Adivina la portada» y un sorteo de merch con más de 2.200 comentarios.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.08s"><img class="blogo blogo-nuclear-blast" src="assets/img/marcas/nuclear-blast.svg" alt="Nuclear Blast" loading="lazy"><b class="chrome" data-k="marca2_cifra" data-plus data-count>+80k</b><h3 data-k="marca2_nombre">Nuclear Blast</h3><p data-en="Impressions on “This or that: Metal Edition”, choosing between the label’s bands.">Impresiones del «This or that: Metal Edition», eligiendo entre bandas del sello.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.16s"><img class="blogo blogo-killstar" src="assets/img/marcas/killstar.svg" alt="Killstar" loading="lazy"><b class="chrome" data-k="marca3_cifra" data-plus data-count>+56k</b><h3 data-k="marca3_nombre">Killstar</h3><p data-en="Impressions on “Metal Moves”, our mosh-move contest wearing the brand’s clothes.">Impresiones de «Metal Moves», nuestra competición de pasos de mosh con prendas de la marca.</p></div>
+      <div class="bcell spot reveal" data-tilt style="--d:.24s"><img class="blogo blogo-mcw" src="assets/img/mcw-simbolo.png" alt="" loading="lazy"><b class="chrome" data-k="marca4_cifra" data-plus data-count>+260k</b><h3 data-k="marca4_nombre">Contenido propio</h3><p data-en="Views on the comedy content we make on our own: costume party, “Superstar”, “A metalhead confesses”.">Visualizaciones del contenido de humor que creamos por libre: fiesta de disfraces, «Superestrella», «Metalera se confiesa».</p></div>
     </div>
     <div class="quote reveal">
       <div class="mark">“</div>
@@ -605,7 +664,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <div class="wrap weekend-grid">
     <div class="photo-frame reveal"><span class="orn o-corner tr" aria-hidden="true"></span><span class="orn o-corner bl" aria-hidden="true"></span><div class="pf-in"><img data-parallax=".04" data-bias="-.5" src="assets/img/grupo-valdaracete.jpg" alt="El grupo de Metal CREATORS en Valdaracete, marzo de 2026" loading="lazy"></div></div>
     <div>
-      <p class="eyebrow reveal" data-en-html="&lt;b&gt;06&lt;/b&gt;Where it all began"><b>06</b>Donde empezó todo</p>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;VI&lt;/b&gt;Where it all began"><b>VI</b>Donde empezó todo</p>
       <img class="weekend-logo reveal" style="--d:.05s" src="assets/img/logo-weekend.png" alt="Metal Creators Weekend">
       <p class="lead reveal" style="--d:.1s" data-en="The first gathering of metal content creators from Spain and the Spanish-speaking world: a weekend of workshops, content creation, community and music to connect the voices of the scene, level up our content and open the door to new collaborations.">El primer encuentro de creadores de metal de España y la comunidad hispanohablante: un fin de semana de talleres, creación de contenido, comunidad y música para conectar las voces de la escena, profesionalizar contenidos y abrir nuevas colaboraciones.</p>
       <ul class="facts reveal" style="--d:.15s">
@@ -627,8 +686,8 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
 <section class="offer" id="colabora">
   <div class="wrap">
     <div>
-      <p class="eyebrow reveal" data-en-html="&lt;b&gt;07&lt;/b&gt;What we offer"><b>07</b>Qué ofrecemos</p>
-      <h2 data-en-html="How we can&lt;br&gt;&lt;em&gt;work together&lt;/em&gt;">Cómo podemos<br><em>trabajar juntos</em></h2>
+      <p class="eyebrow reveal" data-en-html="&lt;b&gt;VII&lt;/b&gt;What we offer"><b>VII</b>Qué ofrecemos</p>
+      <h2 data-en-html="How we can&lt;br&gt;work &lt;em&gt;together&lt;/em&gt;">Cómo podemos<br>trabajar <em>juntos</em></h2>
       <p class="lead reveal" style="margin-top:26px" data-en="We integrate brands organically into formats that already work with our audience. No shoehorned ads.">Integramos las marcas de forma orgánica en formatos que ya funcionan con nuestra audiencia. Nada de anuncios metidos con calzador.</p>
     </div>
     <div class="offer-grid">
@@ -647,7 +706,7 @@ h2 em,h2 em .wi{color:var(--red);-webkit-text-fill-color:var(--red)}
   <img class="mark-bg" src="assets/img/mcw-simbolo.png" alt="">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="The future of metal online">El futuro del metal en redes</p>
-    <h2>Camp Rock…<br><em>goes metal!</em></h2>
+    <h2>Camp Rock…<br>goes <em>metal!</em></h2>
     <p class="lead reveal" data-en="Just kidding. But if you’ve made it this far and you’re interested, let’s jump on a call. We’re open to new ideas and proposals.">Es broma. Pero si has llegado hasta aquí y te interesa, hagamos una llamada. Estamos abiertos a nuevas ideas y propuestas.</p>
     <div class="hero-ctas reveal" style="--d:.1s"><a class="btn" data-mail data-magnetic href="mailto:metalcreatorsweekend@gmail.com?subject=Colaboraci%C3%B3n%20con%20Metal%20CREATORS" data-en-html="Email us &lt;span class=&quot;arr&quot;&gt;→&lt;/span&gt;">Escríbenos <span class="arr">→</span></a>
     <a class="btn ghost" data-dossier data-magnetic href="https://docs.google.com/presentation/d/1iCmK7_pPDCHPsWXJ3JUnQ9CEj877AD8bE4QYEsWgLFA/view" target="_blank" rel="noopener" data-en="Dossier">Dossier (EN)</a></div>
@@ -770,10 +829,7 @@ function cardHTML(c,key){ return `
       <h3>@${c.h}</h3>
       <p class="bio">${LANG==='en'?(c.bio_en||BIO_EN[c.h]||c.bio):c.bio}</p>
       <div class="nums">
-        <span class="num" title="Instagram">${ICON.ig}${fmt(c.ig)}</span>
-        <span class="num" title="TikTok">${ICON.tt}${fmt(c.tt)}</span>
-        <span class="num" title="YouTube">${ICON.yt}${fmt(c.yt)}</span>
-        <span class="num${c.tw?'':' off'}" title="Twitch">${ICON.tw}${c.tw?fmt(c.tw):'–'}</span>
+        ${[['ig','Instagram'],['tt','TikTok'],['yt','YouTube'],['tw','Twitch']].filter(([k])=>c[k]>0).map(([k,t])=>`<span class="num" title="${t}">${ICON[k]}${fmt(c[k])}</span>`).join('')}
       </div>
       <p class="anthem">${ICON.note}<span>${c.song} · <i>${c.artist}</i></span></p>
     </a>`; }
