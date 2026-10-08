@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/img/logo-height.png" as="image">
 <style>
 :root{
@@ -484,7 +484,8 @@ h2.h-xl{font-size:clamp(54px,10.4vw,156px);line-height:.86}
 /* ajustes menores */
 .band.b span{-webkit-text-stroke:1.2px rgba(241,238,233,.72)}
 .reels{-webkit-mask:linear-gradient(90deg,#000 84%,transparent);mask:linear-gradient(90deg,#000 84%,transparent)}
-.roster{padding-top:90px}
+#quienes{padding-bottom:70px}
+.roster{padding-top:70px}
 .tag,.reel .views small,.total{color:#9a958e}
 footer img{height:46px;opacity:.9}
 @media (max-width:480px){
@@ -495,15 +496,17 @@ footer img{height:46px;opacity:.9}
   .nums{grid-template-columns:repeat(2,max-content);column-gap:16px}
 }
 @media (prefers-reduced-motion:reduce){.photo-band .pb-tag.reveal{opacity:1;transform:rotate(-2deg)}}
-/* prueba de tipografía ancha (?tipo=ancha) */
-html.t-ancha h2,html.t-ancha .photo-band .pb-tag{font-family:"Archivo",var(--display);font-weight:800;font-stretch:125%;letter-spacing:-.01em;line-height:.9}
-html.t-ancha h2{font-size:clamp(34px,4.9vw,68px)}
-html.t-ancha h2.h-xl{font-size:clamp(40px,7.6vw,116px)}
-html.t-ancha .cta h2{font-size:clamp(40px,7.4vw,112px)}
-html.t-ancha .playlist h2{font-size:clamp(32px,4.1vw,60px)}
-html.t-ancha .photo-band .pb-tag{font-size:clamp(26px,4.8vw,78px)}
+/* titulares en Archivo ancha (aprobada 8 oct) */
+html h2,html .photo-band .pb-tag{font-family:"Archivo",var(--display);font-weight:800;font-stretch:125%;letter-spacing:-.01em;line-height:.9}
+html h2{font-size:clamp(34px,4.9vw,68px)}
+html h2.h-xl{font-size:clamp(40px,7.6vw,116px)}
+html .cta h2{font-size:clamp(40px,7.4vw,112px)}
+html .playlist h2{font-size:clamp(32px,4.1vw,60px)}
+html .photo-band .pb-tag{font-size:clamp(26px,4.8vw,78px)}
+html .brands h2.h-xl{font-size:clamp(30px,6vw,88px)}
+html .about h2{font-size:clamp(28px,3.7vw,52px)}
+html .content h2{font-size:clamp(30px,4.2vw,58px)}
 </style>
-<script>if(/[?&]tipo=ancha/.test(location.search)){document.documentElement.classList.add('t-ancha');var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&display=swap';document.head.appendChild(l);}</script>
 </head>
 <body class="no-js">
 <div class="progress" id="progress"></div>
@@ -560,7 +563,7 @@ html.t-ancha .photo-band .pb-tag{font-size:clamp(26px,4.8vw,78px)}
   <div class="wrap about-grid">
     <div>
       <p class="eyebrow reveal" data-en-html="&lt;b&gt;I&lt;/b&gt;About us"><b>I</b>Quiénes somos</p>
-      <h2 data-en-html="The &lt;em&gt;metal&lt;/em&gt; scene online from 12 perspectives">La escena <em>metal</em> en redes desde 12 perspectivas</h2>
+      <h2 data-en-html="The &lt;em&gt;metal&lt;/em&gt; scene online from&amp;nbsp;12 perspectives">La escena <em>metal</em> en redes desde&nbsp;12 perspectivas</h2>
       <p class="lead reveal" style="margin-top:30px" data-en="We are 12 content creators living our passion for metal from very different angles: science communication, music history, fashion, makeup, photography, drums, illustration, entertainment…">Somos 12 creadores y creadoras de contenido que vivimos nuestra pasión por el metal desde ángulos muy distintos: divulgación científica, historia de la música, moda, maquillaje, fotografía, batería, ilustración, entretenimiento…</p>
       <p class="lead reveal" style="--d:.1s" data-en="We’ve worked with brands like Killstar, EMP, KOI Footwear, New Rock and Lively Ghosts, covered festivals like Resurrection Fest, Wacken, Hellfest and Rock am Ring, and each of us has built a loyal, engaged community. Together, we have more than 3 million followers.">Hemos colaborado con marcas como Killstar, EMP, KOI Footwear, New Rock o Lively Ghosts, hemos cubierto festivales como Resurrection Fest, Wacken, Hellfest o Rock am Ring, y cada uno ha construido una comunidad fiel y activa. Juntos, sumamos más de 3 millones de seguidores.</p>
     </div>
