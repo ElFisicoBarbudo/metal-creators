@@ -11,7 +11,7 @@ vec3 env(vec3 r){
   float w=.07*sin(r.x*4.+t*.6)+.04*sin(r.x*9.-t*.9);
   float y=r.y*1.5+.1+tilt.y*.22-tilt.x*.12+w;
   vec3 sky=mix(vec3(.42,.42,.47),vec3(1.,.99,1.),pow(clamp(y,0.,1.),.55));
-  sky=mix(sky,vec3(1.,.86,.9),.18*smoothstep(.55,1.,y));
+  sky=mix(sky,vec3(1.,.86,.99),.18*smoothstep(.55,1.,y));
   vec3 gnd=mix(vec3(.015,.015,.02),vec3(.52,.47,.5),pow(clamp(-y*1.25,0.,1.),.7));
   return mix(gnd,sky,smoothstep(-.012,.012,y));
 }
@@ -23,7 +23,7 @@ void main(){
   for(int i=1;i<=22;i++){float k=float(i)/22.;if(hit<.5&&A(uv-d*k)>.5){hit=1.;kh=k;}}
   if(hit>.5){
     vec3 s=mix(vec3(.30,.29,.32),vec3(.035,.03,.04),kh);
-    s+=vec3(.25,.14,.17)*pow(1.-kh,6.);
+    s+=vec3(.25,.15,.26)*pow(1.-kh,6.);
     col=s;al=1.;
   }
   float fm=smoothstep(.3,.7,a0);
@@ -37,7 +37,7 @@ void main(){
     vec3 c=env(r);
     vec3 L=normalize(vec3(lp,.9));
     c+=pow(max(dot(r,L),0.),70.)*1.1;
-    c+=vec3(.98,.55,.67)*pow(1.-n.z,2.2)*.55;
+    c+=vec3(.98,.58,.99)*pow(1.-n.z,2.2)*.55;
     col=mix(col,c,fm);al=max(al,fm);
   }
   gl_FragColor=vec4(col*al,al);

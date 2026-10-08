@@ -39,7 +39,7 @@ y las de la sección de marcas (`+300k`, `+80k`, `+56k`, `+260k`).
 
 ### Colores
 
-Al principio del archivo, en `:root`: `--red` es el color de acento (ahora rosa `#fab4c5`).
+Al principio del archivo, en `:root`: `--red` es el color de acento (ahora rosa `#faa4fd`).
 
 ## Logo 3D de la cabecera
 
